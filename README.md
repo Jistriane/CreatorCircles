@@ -43,7 +43,10 @@ npm run dev         # Inicia interface web
 - Para testes, ajuste a variável `BUYER` para um endereço Sui válido.
 
 ## Deploy
+## Deploys em Produção
 
+- **Frontend Vercel:** [https://frontend-ah38la9br-jistrianedroid-3423s-projects.vercel.app](https://frontend-ah38la9br-jistrianedroid-3423s-projects.vercel.app)
+- **Backend Vercel:** [https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app](https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app)
 - Configure variáveis de ambiente conforme `.env.example` em cada pacote.
 - O frontend usa `NEXT_PUBLIC_API_URL` para apontar para o backend.
 
