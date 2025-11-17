@@ -1,0 +1,10 @@
+[package]
+name = "creator_circles"
+version = "0.1.0"
+authors = ["CreatorCircles Team"]
+
+[build]
+mode = "local"
+
+[addresses]
+creator_circles = "0x0"

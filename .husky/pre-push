@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname \"$0\")/_/husky.sh"
+
+# Run quick test suite for backend before push
+npm -w packages/backend test --silent

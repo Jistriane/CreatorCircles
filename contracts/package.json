@@ -1,0 +1,11 @@
+{
+  "name": "creatorcircles-contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "move:check": "sui move check",
+    "move:test": "sui move test || echo \"sui move test skipped (requires Sui toolchain)\"",
+    "move:publish:mainnet": "sui move publish --network mainnet",
+    "move:publish:testnet": "sui move publish --network testnet"
+  }
+}

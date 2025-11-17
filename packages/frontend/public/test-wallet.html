@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Detecção SlushWallet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .result {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .info { color: #17a2b8; }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Teste de Detecção SlushWallet</h1>
+    
+    <div class="result">
+        <h2>Status da Detecção</h2>
+        <div id="status">Verificando...</div>
+    </div>
+
+    <div class="result">
+        <h2>Informações da Wallet</h2>
+        <pre id="walletInfo">Nenhuma informação disponível</pre>
+    </div>
+
+    <div class="result">
+        <h2>Ações</h2>
+        <button onclick="testConnect()">Testar Conexão</button>
+        <button onclick="checkWindow()">Verificar window</button>
+        <button onclick="location.reload()">Recarregar Página</button>
+    </div>
+
+    <div class="result">
+        <h2>Logs</h2>
+        <pre id="logs"></pre>
+    </div>
+
+    <script>
+        let wallet = null;
+        const logsEl = document.getElementById('logs');
+        
+        function log(msg, type = 'info') {
+            console.log(msg);
+            const timestamp = new Date().toLocaleTimeString();
+            logsEl.textContent += `[${timestamp}] ${msg}\n`;
+            logsEl.scrollTop = logsEl.scrollHeight;
+        }
+
+        function detectWallet() {
+            log('Iniciando detecção de wallet...');
+            
+            // Verificar window.slushWallet
+            if (window.slushWallet) {
+                wallet = window.slushWallet;
+                log('✅ SlushWallet encontrada em window.slushWallet', 'success');
+                return true;
+            }
+            log('❌ window.slushWallet não encontrado');
+            
+            // Verificar window.suiWallet
+            if (window.suiWallet) {
+                if (window.suiWallet.name && window.suiWallet.name.toLowerCase().includes('slush')) {
+                    wallet = window.suiWallet;
+                    log('✅ SlushWallet encontrada em window.suiWallet', 'success');
+                    return true;
+                }
+                log('⚠️ window.suiWallet existe mas não é SlushWallet');
+            } else {
+                log('❌ window.suiWallet não encontrado');
+            }
+            
+            // Verificar window.wallets
+            if (window.wallets) {
+                log(`ℹ️ window.wallets existe (tipo: ${typeof window.wallets})`);
+                if (Array.isArray(window.wallets)) {
+                    log(`ℹ️ window.wallets é um array com ${window.wallets.length} itens`);
+                    const slush = window.wallets.find(w => 
+                        w && w.name && w.name.toLowerCase().includes('slush')
+                    );
+                    if (slush) {
+                        wallet = slush;
+                        log('✅ SlushWallet encontrada em window.wallets', 'success');
+                        return true;
+                    }
+                    log('❌ SlushWallet não encontrada em window.wallets');
+                } else {
+                    log('⚠️ window.wallets não é um array');
+                }
+            } else {
+                log('❌ window.wallets não encontrado');
+            }
+            
+            return false;
+        }
+
+        function updateUI() {
+            const statusEl = document.getElementById('status');
+            const infoEl = document.getElementById('walletInfo');
+            
+            if (wallet) {
+                statusEl.innerHTML = '<span class="success">✅ SlushWallet detectada!</span>';
+                infoEl.textContent = JSON.stringify({
+                    name: wallet.name || 'N/A',
+                    version: wallet.version || 'N/A',
+                    accounts: wallet.accounts || [],
+                    features: wallet.features ? Object.keys(wallet.features) : [],
+                    hasConnect: !!wallet.connect,
+                    hasRequestPermissions: !!wallet.requestPermissions,
+                }, null, 2);
+            } else {
+                statusEl.innerHTML = '<span class="error">❌ SlushWallet não encontrada</span>';
+                infoEl.textContent = 'Certifique-se que a extensão SlushWallet está instalada e ativa no Chrome.';
+            }
+        }
+
+        async function testConnect() {
+            if (!wallet) {
+                alert('SlushWallet não detectada. Instale a extensão primeiro.');
+                return;
+            }
+            
+            log('Tentando conectar...');
+            
+            try {
+                let result;
+                
+                if (wallet.features && wallet.features['standard:connect']) {
+                    log('Usando features[standard:connect]...');
+                    result = await wallet.features['standard:connect'].connect();
+                } else if (wallet.requestPermissions) {
+                    log('Usando requestPermissions()...');
+                    result = await wallet.requestPermissions();
+                } else if (wallet.connect) {
+                    log('Usando connect()...');
+                    result = await wallet.connect();
+                } else {
+                    throw new Error('Nenhum método de conexão disponível');
+                }
+                
+                log('✅ Conexão bem-sucedida!');
+                log('Resultado: ' + JSON.stringify(result, null, 2));
+                
+                if (result.accounts && result.accounts.length > 0) {
+                    alert('Conectado! Endereço: ' + result.accounts[0].address);
+                }
+                
+                updateUI();
+            } catch (err) {
+                log('❌ Erro ao conectar: ' + err.message, 'error');
+                alert('Erro: ' + err.message);
+            }
+        }
+
+        function checkWindow() {
+            log('=== Objetos no window ===');
+            log('window.slushWallet: ' + (window.slushWallet ? 'existe' : 'não existe'));
+            log('window.suiWallet: ' + (window.suiWallet ? 'existe' : 'não existe'));
+            log('window.wallets: ' + (window.wallets ? typeof window.wallets : 'não existe'));
+            
+            // Verificar todos os objetos window
+            log('\n=== Todas as propriedades do window ===');
+            const allKeys = Object.keys(window);
+            log('Total de propriedades: ' + allKeys.length);
+            
+            // Procurar por objetos que podem ser a wallet
+            const walletKeys = allKeys.filter(k => 
+                k.toLowerCase().includes('wallet') || 
+                k.toLowerCase().includes('sui') ||
+                k.toLowerCase().includes('slush')
+            );
+            
+            if (walletKeys.length > 0) {
+                log('Chaves relacionadas encontradas: ' + walletKeys.join(', '));
+                walletKeys.forEach(key => {
+                    log(`  ${key}: ${typeof window[key]}`);
+                    if (typeof window[key] === 'object' && window[key]) {
+                        log(`    Propriedades: ${Object.keys(window[key]).join(', ')}`);
+                    }
+                });
+            } else {
+                log('❌ Nenhuma chave relacionada encontrada no window');
+            }
+            
+            // Verificar extensões Chrome
+            log('\n=== Verificação de Extensões Chrome ===');
+            if (window.chrome && window.chrome.runtime) {
+                log('✅ chrome.runtime existe');
+                log('ID da extensão (se disponível): ' + (window.chrome.runtime.id || 'N/A'));
+            } else {
+                log('❌ chrome.runtime não encontrado');
+            }
+            
+            // Verificar eventos de extensão
+            log('\n=== Aguardando eventos de extensão ===');
+            log('Algumas extensões carregam após um evento. Tentando...');
+            
+            window.dispatchEvent(new Event('load'));
+            setTimeout(() => {
+                log('Verificando novamente após dispatch de evento load...');
+                if (window.slushWallet || window.suiWallet || window.wallets) {
+                    log('✅ Wallet encontrada após evento!');
+                    detectWallet();
+                    updateUI();
+                } else {
+                    log('❌ Ainda não encontrada');
+                }
+            }, 500);
+        }
+
+        // Executar detecção ao carregar
+        window.addEventListener('load', () => {
+            log('Página carregada, iniciando detecção...');
+            
+            // Tentar imediatamente
+            if (!detectWallet()) {
+                log('Wallet não encontrada, aguardando 1 segundo...');
+                // Tentar novamente após 1 segundo
+                setTimeout(() => {
+                    if (detectWallet()) {
+                        updateUI();
+                    } else {
+                        log('❌ Wallet ainda não encontrada após aguardar');
+                        updateUI();
+                    }
+                }, 1000);
+            } else {
+                updateUI();
+            }
+        });
+    </script>
+</body>
+</html>

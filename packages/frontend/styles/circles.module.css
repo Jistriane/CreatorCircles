@@ -1,0 +1,25 @@
+/* Estilos para página de círculos */
+.container {
+  padding: 20px;
+}
+.exampleInfo {
+  font-size: 12px;
+  color: #888;
+}
+.tokenSymbol {
+  color: #888;
+}
+.memberCount {
+  color: #555;
+}
+.circlesList {
+  margin-top: 16px;
+  padding-left: 20px;
+}
+.circleItem {
+  margin-bottom: 8px;
+}
+.error {
+  color: red;
+  margin-top: 8px;
+}

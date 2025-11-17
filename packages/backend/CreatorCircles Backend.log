@@ -1,0 +1,12 @@
+
+> creatorcircles-backend@0.1.0 dev
+> npm run build && node dist/server.js
+
+
+> creatorcircles-backend@0.1.0 build
+> tsc -p .
+
+[dotenv@17.2.3] injecting env (3) from .env -- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+{"level":"info","message":"Backend CreatorCircles inicializado"}
+Backend running on http://localhost:3000

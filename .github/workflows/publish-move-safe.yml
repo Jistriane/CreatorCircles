@@ -1,0 +1,69 @@
+name: Publish Move (manual & guarded)
+
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: 'Target network: testnet or mainnet'
+        required: true
+        default: 'testnet'
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish Move packages (guarded)
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fail early if keystore secret not present
+        run: |
+          if [ -z "${{ secrets.SUI_KEYSTORE }}" ]; then
+            echo "SUI_KEYSTORE secret is not set. Aborting publish." >&2
+            exit 1
+          fi
+
+      - name: Install Sui CLI
+        run: |
+          if ! command -v sui >/dev/null 2>&1; then
+            curl -sSL https://get.sui.io | bash -s -- --yes
+            echo "$HOME/.sui/bin" >> $GITHUB_PATH
+          fi
+
+      - name: Prepare keystore
+        env:
+          SUI_KEYSTORE: ${{ secrets.SUI_KEYSTORE }}
+          SUI_PASSWORD: ${{ secrets.SUI_PASSWORD }}
+        run: |
+          echo "$SUI_KEYSTORE" > sui_keystore.json
+          # Unlocking keystore will be done by sui client at publish time; keep file only in runner workspace
+
+      - name: Dry-run: sui move check
+        working-directory: ./contracts
+        run: |
+          sui move check
+
+      - name: Publish to selected network (manual approval expected)
+        working-directory: ./contracts
+        env:
+          SUI_KEYSTORE: ${{ secrets.SUI_KEYSTORE }}
+          SUI_PASSWORD: ${{ secrets.SUI_PASSWORD }}
+        run: |
+          echo "About to publish to ${{ github.event.inputs.network }}"
+          if [ "${{ github.event.inputs.network }}" = "testnet" ]; then
+            sui move publish --keystore sui_keystore.json --password "$SUI_PASSWORD" --network testnet
+          elif [ "${{ github.event.inputs.network }}" = "mainnet" ]; then
+            echo "Publishing to mainnet is gated. Ensure audit completed and funds available."
+            sui move publish --keystore sui_keystore.json --password "$SUI_PASSWORD" --network mainnet
+          else
+            echo "Unknown network: ${{ github.event.inputs.network }}" >&2
+            exit 1
+          fi
+
+      - name: Cleanup
+        run: |
+          shred -u sui_keystore.json || rm -f sui_keystore.json || true

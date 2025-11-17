@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  backend:
+    image: creatorcircles/backend:latest
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=${MONGODB_URI}
+      - SENTRY_DSN=${SENTRY_DSN}
+      - WAL_API_URL=${WAL_API_URL}
+      - WAL_APP_ID=${WAL_APP_ID}
+      - WAL_SECRET=${WAL_SECRET}
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongodb
+
+  frontend:
+    image: creatorcircles/frontend:latest
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+    ports:
+      - '3001:3001'
+
+  mongodb:
+    image: mongo:7.0
+    environment:
+      MONGO_INITDB_DATABASE: creatorcircles_prod
+    volumes:
+      - mongo-data-prod:/data/db
+
+volumes:
+  mongo-data-prod:
+    driver: local

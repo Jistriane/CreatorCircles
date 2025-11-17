@@ -1,0 +1,39 @@
+name: Move Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  move-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Sui CLI
+        run: |
+          sudo apt-get update && sudo apt-get install -y ca-certificates curl
+          # Install Sui CLI (release candidate). Adjust version if required.
+          curl -fsSL https://github.com/MystenLabs/sui/releases/latest/download/sui-linux-x86_64.tar.gz -o sui.tar.gz
+          tar -xzf sui.tar.gz -C $HOME/.local/bin --strip-components=1
+          echo "$HOME/.local/bin"
+        shell: bash
+
+      - name: Cache Move stdlib
+        uses: actions/cache@v4
+        with:
+          path: ~/.move
+          key: ${{ runner.os }}-move-stdlib-${{ hashFiles('**/move.toml') }}
+
+      - name: Build Move package
+        working-directory: contracts
+        run: |
+          sui move build --path . --test
+
+      - name: Run Move tests
+        working-directory: contracts
+        run: |
+          sui move test --path .

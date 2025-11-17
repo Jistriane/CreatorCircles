@@ -1,0 +1,36 @@
+name: Publish Move (manual/once)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  publish-move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Sui (installer)
+        run: |
+          if ! command -v sui >/dev/null 2>&1; then
+            curl -sSfL https://get.sui.io | bash
+            echo "Sui installed"
+          else
+            echo "Sui already available"
+          fi
+      - name: Configure keystore
+        env:
+          SUI_KEYSTORE: ${{ secrets.SUI_KEYSTORE }}
+        run: |
+          # This step expects the secret SUI_KEYSTORE to contain a keystore file content
+          if [ -z "${SUI_KEYSTORE:-}" ]; then
+            echo "No SUI_KEYSTORE secret provided. Aborting."; exit 1
+          fi
+          mkdir -p $HOME/.sui/keystore
+          echo "$SUI_KEYSTORE" > $HOME/.sui/keystore/keystore.json
+          chmod 600 $HOME/.sui/keystore/keystore.json
+      - name: Publish to mainnet (confirm)
+        env:
+          SUICLI_NETWORK: mainnet
+        run: |
+          echo "About to publish to mainnet. This will spend gas. Ensure secrets are set and you intend to proceed."
+          sui move check
+          sui move publish --network mainnet

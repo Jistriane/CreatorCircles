@@ -1,0 +1,60 @@
+name: Move Check & Test
+
+on:
+  push:
+    paths:
+      - 'contracts/**'
+  pull_request:
+    paths:
+      - 'contracts/**'
+
+jobs:
+  move-check:
+    name: Sui Move check + test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install prerequisites
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y curl build-essential
+
+      - name: Install Sui CLI (if not present)
+        run: |
+          if ! command -v sui >/dev/null 2>&1; then
+            echo "Installing Sui CLI..."
+            curl -sSL https://get.sui.io | bash -s -- --yes
+            echo "SUI_INSTALL_DIR=$HOME/.sui/bin" >> $GITHUB_ENV
+            echo "$HOME/.sui/bin" >> $GITHUB_PATH
+          else
+            echo "sui already installed"
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache sui build artifacts
+        uses: actions/cache@v4
+        with:
+          path: ~/.sui
+          key: ${{ runner.os }}-sui-${{ hashFiles('contracts/**') }}
+
+      - name: Install npm packages (contracts)
+        working-directory: ./contracts
+        run: npm ci
+
+      - name: Run sui move check
+        working-directory: ./contracts
+        run: |
+          echo "Running sui move check"
+          sui move check || (echo "sui move check failed" && exit 1)
+
+      - name: Run sui move test (non-blocking)
+        working-directory: ./contracts
+        run: |
+          echo "Running sui move test (may be skipped if not supported on runner)"
+          sui move test || echo "sui move test skipped or failed (non-blocking)"

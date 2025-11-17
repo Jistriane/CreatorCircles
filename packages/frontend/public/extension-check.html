@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Extensões Chrome</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+        .section {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .success { border-left-color: #28a745; }
+        .error { border-left-color: #dc3545; }
+        .warning { border-left-color: #ffc107; }
+        .info { border-left-color: #17a2b8; }
+        
+        pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 13px;
+            border: 1px solid #dee2e6;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 2px;
+        }
+        .badge-success { background: #d4edda; color: #155724; }
+        .badge-error { background: #f8d7da; color: #721c24; }
+        .badge-warning { background: #fff3cd; color: #856404; }
+        .extension-card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+        .extension-card h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Verificação de Extensões Chrome</h1>
+        
+        <div class="section info">
+            <h2>ℹ️ Instruções</h2>
+            <p>Esta página verifica se extensões de wallet estão instaladas no Chrome.</p>
+            <p><strong>IMPORTANTE:</strong> Para que este teste funcione, você precisa:</p>
+            <ol>
+                <li>Abrir o Chrome DevTools (F12)</li>
+                <li>Ir na aba "Console"</li>
+                <li>Copiar e colar os comandos abaixo manualmente</li>
+            </ol>
+        </div>
+
+        <div class="section warning">
+            <h2>⚠️ Por que não funciona automaticamente?</h2>
+            <p>A API <code>chrome.management</code> não pode ser acessada diretamente por páginas web por questões de segurança.</p>
+            <p>Você precisa executar os comandos manualmente no DevTools Console.</p>
+        </div>
+
+        <div class="section">
+            <h2>📋 Comando 1: Listar TODAS as Extensões</h2>
+            <p>Copie e cole no Console do DevTools:</p>
+            <pre>chrome.management.getAll().then(exts => {
+  console.log('Total de extensões:', exts.length);
+  console.table(exts.map(e => ({
+    Nome: e.name,
+    ID: e.id,
+    Habilitada: e.enabled,
+    Versão: e.version
+  })));
+});</pre>
+            <button onclick="copyCommand1()">📋 Copiar Comando</button>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Comando 2: Procurar SlushWallet</h2>
+            <p>Copie e cole no Console do DevTools:</p>
+            <pre>chrome.management.getAll().then(exts => {
+  const slush = exts.filter(e => 
+    e.name.toLowerCase().includes('slush') || 
+    e.name.toLowerCase().includes('sui')
+  );
+  
+  if (slush.length === 0) {
+    console.error('❌ NENHUMA extensão Sui/Slush encontrada!');
+    console.log('Extensões disponíveis:', exts.map(e => e.name));
+  } else {
+    console.log('✅ Extensões Sui/Slush encontradas:');
+    slush.forEach(ext => {
+      console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      console.log('📦 Nome:', ext.name);
+      console.log('🆔 ID:', ext.id);
+      console.log('📌 Versão:', ext.version);
+      console.log('✅ Habilitada:', ext.enabled);
+      console.log('🔧 Tipo:', ext.type);
+      console.log('📝 Descrição:', ext.description);
+      console.log('🌐 Homepage:', ext.homepageUrl || 'N/A');
+      console.log('⚙️ Opções:', ext.optionsUrl || 'N/A');
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+    });
+  }
+});</pre>
+            <button onclick="copyCommand2()">📋 Copiar Comando</button>
+        </div>
+
+        <div class="section">
+            <h2>🌐 Comando 3: Verificar Objetos window</h2>
+            <p>Copie e cole no Console do DevTools:</p>
+            <pre>// Listar TODOS os objetos window relacionados a wallet/sui/slush
+const allWindowKeys = Object.keys(window);
+console.log('Total de propriedades no window:', allWindowKeys.length);
+
+const walletRelated = allWindowKeys.filter(k => 
+  k.toLowerCase().includes('wallet') ||
+  k.toLowerCase().includes('sui') ||
+  k.toLowerCase().includes('slush')
+);
+
+console.log('\n🔍 Propriedades relacionadas a wallet:');
+if (walletRelated.length === 0) {
+  console.error('❌ NENHUMA propriedade relacionada encontrada!');
+} else {
+  walletRelated.forEach(key => {
+    const value = window[key];
+    console.log(`\n${key}:`, typeof value);
+    if (typeof value === 'object' && value !== null) {
+      console.log('  Propriedades:', Object.keys(value));
+    }
+  });
+}
+
+// Verificar especificamente
+console.log('\n📌 Verificações específicas:');
+console.log('window.slushWallet:', window.slushWallet);
+console.log('window.suiWallet:', window.suiWallet);
+console.log('window.wallets:', window.wallets);
+console.log('window.ethereum:', window.ethereum); // Para comparar com MetaMask</pre>
+            <button onclick="copyCommand3()">📋 Copiar Comando</button>
+        </div>
+
+        <div class="section error">
+            <h2>❌ Se SlushWallet NÃO aparecer:</h2>
+            <ol>
+                <li><strong>Verifique a instalação:</strong> Vá em <code>chrome://extensions/</code></li>
+                <li><strong>Confirme que está habilitada:</strong> Toggle deve estar azul/ativo</li>
+                <li><strong>Verifique permissões:</strong> Clique em "Detalhes" → "Acesso ao site" → "Em todos os sites"</li>
+                <li><strong>Recarregue a extensão:</strong> Clique no botão de reload na extensão</li>
+                <li><strong>Reinicie o Chrome:</strong> Feche e abra novamente</li>
+                <li><strong>Reinstale a extensão:</strong> Remova e instale novamente</li>
+            </ol>
+        </div>
+
+        <div class="section success">
+            <h2>✅ Alternativa: Usar Sui Wallet Oficial</h2>
+            <p>Se SlushWallet não funcionar, você pode usar a Sui Wallet oficial:</p>
+            <ol>
+                <li>Remover SlushWallet</li>
+                <li>Instalar: <a href="https://chrome.google.com/webstore/detail/sui-wallet/opcgpfmipidbgpenhmajoajpbobppdil" target="_blank">Sui Wallet (Oficial)</a></li>
+                <li>Criar/importar conta</li>
+                <li>Testar novamente nesta página</li>
+            </ol>
+        </div>
+
+        <div id="results" class="section" style="display:none;">
+            <h2>📊 Resultados</h2>
+            <div id="resultsContent"></div>
+        </div>
+    </div>
+
+    <script>
+        function copyCommand1() {
+            const cmd = `chrome.management.getAll().then(exts => {
+  console.log('Total de extensões:', exts.length);
+  console.table(exts.map(e => ({
+    Nome: e.name,
+    ID: e.id,
+    Habilitada: e.enabled,
+    Versão: e.version
+  })));
+});`;
+            navigator.clipboard.writeText(cmd);
+            alert('✅ Comando 1 copiado! Cole no Console do DevTools (F12)');
+        }
+
+        function copyCommand2() {
+            const cmd = `chrome.management.getAll().then(exts => {
+  const slush = exts.filter(e => 
+    e.name.toLowerCase().includes('slush') || 
+    e.name.toLowerCase().includes('sui')
+  );
+  
+  if (slush.length === 0) {
+    console.error('❌ NENHUMA extensão Sui/Slush encontrada!');
+    console.log('Extensões disponíveis:', exts.map(e => e.name));
+  } else {
+    console.log('✅ Extensões Sui/Slush encontradas:');
+    slush.forEach(ext => {
+      console.log('\\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      console.log('📦 Nome:', ext.name);
+      console.log('🆔 ID:', ext.id);
+      console.log('📌 Versão:', ext.version);
+      console.log('✅ Habilitada:', ext.enabled);
+      console.log('🔧 Tipo:', ext.type);
+      console.log('📝 Descrição:', ext.description);
+      console.log('🌐 Homepage:', ext.homepageUrl || 'N/A');
+      console.log('⚙️ Opções:', ext.optionsUrl || 'N/A');
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\\n');
+    });
+  }
+});`;
+            navigator.clipboard.writeText(cmd);
+            alert('✅ Comando 2 copiado! Cole no Console do DevTools (F12)');
+        }
+
+        function copyCommand3() {
+            const cmd = `const allWindowKeys = Object.keys(window);
+console.log('Total de propriedades no window:', allWindowKeys.length);
+
+const walletRelated = allWindowKeys.filter(k => 
+  k.toLowerCase().includes('wallet') ||
+  k.toLowerCase().includes('sui') ||
+  k.toLowerCase().includes('slush')
+);
+
+console.log('\\n🔍 Propriedades relacionadas a wallet:');
+if (walletRelated.length === 0) {
+  console.error('❌ NENHUMA propriedade relacionada encontrada!');
+} else {
+  walletRelated.forEach(key => {
+    const value = window[key];
+    console.log(\`\\n\${key}:\`, typeof value);
+    if (typeof value === 'object' && value !== null) {
+      console.log('  Propriedades:', Object.keys(value));
+    }
+  });
+}
+
+console.log('\\n📌 Verificações específicas:');
+console.log('window.slushWallet:', window.slushWallet);
+console.log('window.suiWallet:', window.suiWallet);
+console.log('window.wallets:', window.wallets);
+console.log('window.ethereum:', window.ethereum);`;
+            navigator.clipboard.writeText(cmd);
+            alert('✅ Comando 3 copiado! Cole no Console do DevTools (F12)');
+        }
+
+        // Verificação automática (limitada)
+        window.addEventListener('load', () => {
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('🔍 VERIFICAÇÃO AUTOMÁTICA DE WALLET');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+            console.log('');
+            console.log('Para verificação completa de extensões, use os comandos acima!');
+            console.log('');
+            console.log('Verificando window...');
+            console.log('window.slushWallet:', window.slushWallet || '❌ undefined');
+            console.log('window.suiWallet:', window.suiWallet || '❌ undefined');
+            console.log('window.wallets:', window.wallets || '❌ undefined');
+            console.log('window.ethereum:', window.ethereum ? '✅ MetaMask detectada' : '❌ undefined');
+            console.log('');
+            console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        });
+    </script>
+</body>
+</html>

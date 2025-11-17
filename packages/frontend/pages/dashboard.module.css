@@ -1,0 +1,33 @@
+.comprarContainer {
+  margin-top: 8px;
+}
+.error {
+  color: red;
+  margin-top: 8px;
+}
+.saldoContainer {
+  margin-top: 16px;
+}
+.historicoContainer {
+  margin-top: 16px;
+}
+.comprarContainer {
+  margin-top: 8px;
+}
+.saldoContainer {
+  margin-top: 16px;
+}
+.error {
+  color: red;
+}
+.container {
+  padding: 20px;
+}
+
+.exampleInfo {
+  font-size: 12px;
+  color: #888;
+}
+.tokenSymbol {
+  color: #888;
+}

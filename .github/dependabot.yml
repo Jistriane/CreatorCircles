@@ -1,0 +1,18 @@
+# Atualização contínua de dependências
+
+1. Use Dependabot no GitHub: adicione `.github/dependabot.yml`:
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/packages/backend"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/packages/frontend"
+    schedule:
+      interval: "weekly"
+```
+
+2. Execute `pnpm update` regularmente.

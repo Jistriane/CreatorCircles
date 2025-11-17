@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            **/node_modules
+            ~/.npm
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node-version }}-
+      - name: Install root deps
+        run: npm install
+      - name: Run backend tests
+        run: npm -w backend test
+      - name: Lint frontend
+        run: npm -w frontend run lint
+      - name: Build frontend
+        run: |
+          npm -w frontend install
+          npm -w frontend run build
+
+  move-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Sui (optional) and run move check
+        run: |
+          set -e
+          # Try to run sui move check; if not installed, attempt lightweight install
+          if ! command -v sui >/dev/null 2>&1; then
+            echo "sui not found, installing via official installer script"
+            curl -sSfL https://get.sui.io | bash || true
+            export PATH="$HOME/.sui/bin:$PATH"
+          fi
+          if command -v sui >/dev/null 2>&1; then
+            echo "sui found, running move check"
+            cd contracts
+            sui move check
+          else
+            echo "sui CLI not available; skipping move check"
+          fi

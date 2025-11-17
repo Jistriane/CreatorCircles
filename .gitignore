@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.env.*
+.env-dev
+.DS_Store
+.vscode
+coverage
+npm-debug.log
+.pnp.*
