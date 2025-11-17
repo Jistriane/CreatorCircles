@@ -1,4 +1,4 @@
-![Creator Circles Logo](./packages/frontend/public/logo-creatorcircles.png)
+![Creator Circles Logo](./packages/frontend/public/logo.svg)
 
 # CreatorCircles
 
