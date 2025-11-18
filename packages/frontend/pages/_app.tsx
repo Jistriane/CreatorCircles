@@ -1,5 +1,5 @@
 import { SuiClientProvider, WalletProvider, createNetworkConfig } from '@mysten/dapp-kit';
-import { getFullnodeUrl } from '@mysten/sui.js';
+import { getFullnodeUrl } from '@mysten/sui/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import '@mysten/dapp-kit/dist/index.css';
