@@ -1,9 +1,10 @@
 import { SuiClientProvider, WalletProvider, createNetworkConfig } from '@mysten/dapp-kit';
-import { getFullnodeUrl } from '@mysten/sui.js/client';
+import { getFullnodeUrl } from '@mysten/sui.js';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import '@mysten/dapp-kit/dist/index.css';
 import '../styles/global.css';
+import Menu from '../components/Menu';
 
 const queryClient = new QueryClient();
 
@@ -18,7 +19,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<SuiClientProvider networks={networkConfig} defaultNetwork="devnet">
-				<WalletProvider>
+				<WalletProvider autoConnect>
+					<Menu />
 					<Component {...pageProps} />
 				</WalletProvider>
 			</SuiClientProvider>
