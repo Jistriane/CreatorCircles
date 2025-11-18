@@ -1,0 +1,11 @@
+{
+  "c": ["webpack", "components_HomeClient_tsx"],
+  "r": ["pages/circulo/[id]", "pages/404"],
+  "m": [
+    "../../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2Fhome%2Fjistriane%2FDocumentos%2FProjetos%2FCreatorCircles%2Fpackages%2Ffrontend%2Fpages%2Fcirculo%2F%5Bid%5D.tsx&page=%2Fcirculo%2F%5Bid%5D!",
+    "../../node_modules/next/router.js",
+    "./pages/circulo/[id].tsx",
+    "../../node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2Fhome%2Fjistriane%2FDocumentos%2FProjetos%2FCreatorCircles%2Fpackages%2Ffrontend%2Fpages%2F404.tsx&page=%2F404!",
+    "./pages/404.tsx"
+  ]
+}
