@@ -9,14 +9,14 @@
 - [33mwarn[39m See more info here: https://nextjs.org/docs/messages/invalid-next-config
 npm error code ENOWORKSPACES
 npm error This command does not support workspaces.
-npm error A complete log of this run can be found in: /home/jistriane/.npm/_logs/2025-11-19T02_36_52_793Z-debug-0.log
-- [35mevent[39m compiled client and server successfully in 205 ms (18 modules)
+npm error A complete log of this run can be found in: /home/jistriane/.npm/_logs/2025-11-19T02_51_47_453Z-debug-0.log
+- [35mevent[39m compiled client and server successfully in 309 ms (18 modules)
 - [36mwait[39m compiling...
-(node:46539) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+- [35mevent[39m compiled client and server successfully in 234 ms (18 modules)
+(node:55104) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-- [35mevent[39m compiled client and server successfully in 165 ms (18 modules)
-- [36mwait[39m compiling /_error (client and server)...
-- [35mevent[39m compiled client and server successfully in 1174 ms (750 modules)
+- [36mwait[39m compiling / (client and server)...
+- [35mevent[39m compiled client and server successfully in 1888 ms (757 modules)
 Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
     at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
     at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
@@ -41,111 +41,9 @@ Warning: useLayoutEffect does nothing on the server, because its effect cannot b
     at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
     at div
     at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-- [33mwarn[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-- [36mwait[39m compiling /governanca (client and server)...
-- [35mevent[39m compiled client and server successfully in 455 ms (757 modules)
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-- [33mwarn[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
-    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
-    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
-    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
-    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
-    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
-    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
-    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
-    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
-    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
-    at div
-    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
-- [36mwait[39m compiling /...
-- [35mevent[39m compiled client and server successfully in 227 ms (757 modules)
+- [36mwait[39m compiling /governanca...
+- [35mevent[39m compiled client and server successfully in 205 ms (761 modules)
 - [36mwait[39m compiling /dashboard...
-- [35mevent[39m compiled client and server successfully in 158 ms (761 modules)
+- [35mevent[39m compiled client and server successfully in 261 ms (765 modules)
 - [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 357 ms (757 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 438 ms (757 modules)
+- [35mevent[39m compiled client and server successfully in 569 ms (757 modules)

@@ -1,5 +1,5 @@
-
 import React from 'react';
+
 import useSWR from 'swr';
 import Link from 'next/link';
 import WalletConnect from '../components/WalletConnect';
