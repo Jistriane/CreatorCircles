@@ -1,3 +1,54 @@
+.badge-hot {
+  background: #fbbf24;
+  color: #fff;
+  font-size: 0.85em;
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin-left: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+.benefit-item {
+  margin-right: 8px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+  padding: 32px 28px;
+  max-width: 340px;
+  width: 100%;
+  animation: fadeIn 0.5s;
+}
+.modal-info {
+  margin-bottom: 18px;
+}
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.modal-cancel {
+  background: #e11d48;
+}
+@media (max-width: 600px) {
+  .modal-box {
+    padding: 16px 8px;
+    max-width: 98vw;
+  }
+}
 .detect-btn {
   margin-top: 8px;
 }

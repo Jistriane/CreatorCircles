@@ -1,21 +1,29 @@
+
 import useSWR from 'swr';
 import Link from 'next/link';
 import WalletConnect from '../components/WalletConnect';
+import { useState } from 'react';
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
+
 
 type Circle = {
   id: string;
   name: string;
   tokenSymbol: string;
   memberCount: number;
+  creator?: string;
+  entryPrice?: number;
+  hot?: boolean;
+  benefits?: string[];
 };
 
 const mockCircles: Circle[] = [
-  { id: '1', name: 'Dev Circle', tokenSymbol: 'DVC', memberCount: 142 },
-  { id: '2', name: 'Artistas Web3', tokenSymbol: 'ART', memberCount: 87 },
-  { id: '3', name: 'Makers Sui', tokenSymbol: 'MSUI', memberCount: 53 },
+  { id: '1', name: 'DevCircle', tokenSymbol: 'DVC', memberCount: 142, creator: 'Alice', entryPrice: 5, hot: true, benefits: ['Chat VIP', 'NFT Mensal'] },
+  { id: '2', name: 'ArtFi', tokenSymbol: 'ART', memberCount: 89, creator: 'Clara', entryPrice: 3, hot: true, benefits: ['Mentorias', 'Airdrops'] },
+  { id: '3', name: 'Makers Sui', tokenSymbol: 'MSUI', memberCount: 53, creator: 'Bob', entryPrice: 2, hot: false, benefits: ['NFT Mensal'] },
 ];
+
 
 export default function Home() {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
@@ -26,6 +34,25 @@ export default function Home() {
     circles = data.data;
   } else if (!data && !error) {
     circles = mockCircles;
+  }
+
+  // Modal de confirmação
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCircle, setSelectedCircle] = useState<Circle | null>(null);
+
+  function handleEnter(circle: Circle) {
+    setSelectedCircle(circle);
+    setModalOpen(true);
+  }
+  function handleCloseModal() {
+    setModalOpen(false);
+    setSelectedCircle(null);
+  }
+  function handleConfirmEnter() {
+    // Simulação de entrada
+    setModalOpen(false);
+    setSelectedCircle(null);
+    alert('Entrada confirmada!');
   }
 
   return (
@@ -64,16 +91,38 @@ export default function Home() {
             <div className="card">Nenhum círculo encontrado.</div>
           ) : (
             circles.map((c, idx) => (
-              <div className="card circle-card" key={c.id || idx}>
+              <div className={`card circle-card${c.hot ? ' hot-badge' : ''}`} key={c.id || idx}>
                 <div className="card-title">
                   <span role="img" aria-label="circle">🟣</span> {c.name}
+                  {c.hot && <span className="badge-hot">🔥 Hot</span>}
                 </div>
                 <div className="card-meta">Token: <b>{c.tokenSymbol}</b> &nbsp;|&nbsp; Membros: <b>{c.memberCount}</b></div>
-                <button className="button">Entrar no círculo</button>
+                <div className="card-meta">Criador: <b>{c.creator}</b></div>
+                <div className="card-meta">Preço de Entrada: <b>{c.entryPrice} SUI</b></div>
+                <div className="card-meta">Benefícios: {c.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}</div>
+                <button className="button" onClick={() => handleEnter(c)}>Entrar Agora</button>
               </div>
             ))
           )}
         </div>
+        {modalOpen && selectedCircle && (
+          <div className="modal-overlay">
+            <div className="modal-box">
+              <h3>Confirmar entrada no círculo</h3>
+              <div className="modal-info">
+                <b>{selectedCircle.name}</b> ({selectedCircle.tokenSymbol})<br />
+                Preço de entrada: <b>{selectedCircle.entryPrice} SUI</b><br />
+                Membros: <b>{selectedCircle.memberCount}</b><br />
+                Benefícios: {selectedCircle.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}<br />
+                <span className="info-text">Você será redirecionado para a wallet para confirmar a transação.</span>
+              </div>
+              <div className="modal-actions">
+                <button className="button" onClick={handleConfirmEnter}>Confirmar</button>
+                <button className="button modal-cancel" onClick={handleCloseModal}>Cancelar</button>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </>
   );

@@ -9,16 +9,16 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@mysten/dapp-kit": "^0.19.9",
+    "@mysten/dapp-kit": "0.19.9",
     "@mysten/slush-wallet": "^0.2.10",
-    "@mysten/wallet-standard": "^0.19.7",
+    "@mysten/wallet-standard": "0.19.4",
     "isomorphic-unfetch": "3.1.0",
     "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "2.1.0",
     "@tanstack/react-query": "^5.28.0",
-    "@mysten/sui": "^0.19.9"
+    "@mysten/sui": "1.45.0"
   },
   "devDependencies": {
     "@types/node": "20.4.2",

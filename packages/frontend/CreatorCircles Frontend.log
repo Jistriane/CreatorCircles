@@ -9,72 +9,577 @@
 - [33mwarn[39m See more info here: https://nextjs.org/docs/messages/invalid-next-config
 npm error code ENOWORKSPACES
 npm error This command does not support workspaces.
-npm error A complete log of this run can be found in: /home/jistriane/.npm/_logs/2025-11-17T02_28_02_519Z-debug-0.log
-- [35mevent[39m compiled client and server successfully in 690 ms (18 modules)
+npm error A complete log of this run can be found in: /home/jistriane/.npm/_logs/2025-11-19T01_59_18_630Z-debug-0.log
+- [35mevent[39m compiled client and server successfully in 567 ms (18 modules)
 - [36mwait[39m compiling...
-(node:23900) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+- [35mevent[39m compiled client and server successfully in 226 ms (18 modules)
+(node:28253) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-- [35mevent[39m compiled client and server successfully in 687 ms (18 modules)
 - [36mwait[39m compiling / (client and server)...
-- [35mevent[39m compiled client and server successfully in 798 ms (206 modules)
+- [35mevent[39m compiled client and server successfully in 1793 ms (757 modules)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+- [36mwait[39m compiling /dashboard...
+- [35mevent[39m compiled client and server successfully in 370 ms (761 modules)
 - [36mwait[39m compiling /_error (client and server)...
-- [35mevent[39m compiled client and server successfully in 295 ms (208 modules)
-- [33mwarn[39m Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
-- [36mwait[39m compiling /dashboard (client and server)...
-- [35mevent[39m compiled client and server successfully in 207 ms (212 modules)
+- [35mevent[39m compiled client and server successfully in 238 ms (763 modules)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
 - [36mwait[39m compiling /governanca...
-- [35mevent[39m compiled client and server successfully in 186 ms (216 modules)
+- [35mevent[39m compiled client and server successfully in 149 ms (767 modules)
 - [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 150 ms (206 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 1435 ms (206 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 349 ms (206 modules)
+- [35mevent[39m compiled client and server successfully in 767 ms (757 modules)
+- [36mwait[39m compiling /governanca...
+- [35mevent[39m compiled client and server successfully in 183 ms (761 modules)
 - [36mwait[39m compiling /dashboard...
-- [35mevent[39m compiled client and server successfully in 108 ms (210 modules)
+- [35mevent[39m compiled client and server successfully in 289 ms (761 modules)
+- [36mwait[39m compiling...
+- [31merror[39m ./pages/index.tsx
+Error: 
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:52:1]
+ [2m 52[0m |         alert('Entrada confirmada!');
+ [2m 53[0m |       }
+ [2m 54[0m |     
+ [2m 55[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m   return (
+ [2m 56[0m | [31;1m|[0m       <>
+ [2m 57[0m | [31;1m|[0m         <header className="main-header">
+ [2m 58[0m | [31;1m|[0m           <div className="logo-area">
+ [2m 59[0m | [31;1m|[0m             <img src="/logo.svg" alt="Logo CreatorCircles" className="logo-img" />
+ [2m 60[0m | [31;1m|[0m             <h1>CreatorCircles</h1>
+ [2m 61[0m | [31;1m|[0m           </div>
+ [2m 62[0m | [31;1m|[0m           <nav className="main-nav">
+ [2m 63[0m | [31;1m|[0m             <Link href="/" className="nav-link">Explorar Círculos</Link>
+ [2m 64[0m | [31;1m|[0m             <Link href="/dashboard" className="nav-link">Dashboard</Link>
+ [2m 65[0m | [31;1m|[0m             <Link href="/governanca" className="nav-link">Governança</Link>
+ [2m 66[0m | [31;1m|[0m             <WalletConnect />
+ [2m 67[0m | [31;1m|[0m           </nav>
+ [2m 68[0m | [31;1m|[0m         </header>
+ [2m 69[0m | [31;1m|[0m         <main>
+ [2m 70[0m | [31;1m|[0m           <h2 className="explore-title">
+ [2m 71[0m | [31;1m|[0m             <span role="img" aria-label="explorar">🌐</span> Explorar Círculos
+ [2m 72[0m | [31;1m|[0m           </h2>
+ [2m 73[0m | [31;1m|[0m           {error && (
+ [2m 74[0m | [31;1m|[0m             <div className="error">
+ [2m 75[0m | [31;1m|[0m               <span role="img" aria-label="erro">❌</span> Erro ao carregar: {error.message || 'Erro desconhecido'}<br />
+ [2m 76[0m | [31;1m|[0m               Verifique se o backend está rodando em <code>{API_URL}</code>.<br />
+ [2m 77[0m | [31;1m|[0m               <span className="info-text">Dica: execute <b>npm run dev</b> na raiz do projeto.</span>
+ [2m 78[0m | [31;1m|[0m             </div>
+ [2m 79[0m | [31;1m|[0m           )}
+ [2m 80[0m | [31;1m|[0m           {!data && !error && (
+ [2m 81[0m | [31;1m|[0m             <div className="loading-box">
+ [2m 82[0m | [31;1m|[0m               <span role="img" aria-label="carregando">⏳</span> Carregando dados reais...<br />
+ [2m 83[0m | [31;1m|[0m               <span className="info-text">Exibindo dados de exemplo</span>
+ [2m 84[0m | [31;1m|[0m             </div>
+ [2m 85[0m | [31;1m|[0m           )}
+ [2m 86[0m | [31;1m|[0m           <div className="circles-list">
+ [2m 87[0m | [31;1m|[0m             {circles.length === 0 ? (
+ [2m 88[0m | [31;1m|[0m               <div className="card">Nenhum círculo encontrado.</div>
+ [2m 89[0m | [31;1m|[0m             ) : (
+ [2m 90[0m | [31;1m|[0m               circles.map((c, idx) => (
+ [2m 91[0m | [31;1m|[0m                 <div className={`card circle-card${c.hot ? ' hot-badge' : ''}`} key={c.id || idx}>
+ [2m 92[0m | [31;1m|[0m                   <div className="card-title">
+ [2m 93[0m | [31;1m|[0m                     <span role="img" aria-label="circle">🟣</span> {c.name}
+ [2m 94[0m | [31;1m|[0m                     {c.hot && <span className="badge-hot">🔥 Hot</span>}
+ [2m 95[0m | [31;1m|[0m                   </div>
+ [2m 96[0m | [31;1m|[0m                   <div className="card-meta">Token: <b>{c.tokenSymbol}</b> &nbsp;|&nbsp; Membros: <b>{c.memberCount}</b></div>
+ [2m 97[0m | [31;1m|[0m                   <div className="card-meta">Criador: <b>{c.creator}</b></div>
+ [2m 98[0m | [31;1m|[0m                   <div className="card-meta">Preço de Entrada: <b>{c.entryPrice} SUI</b></div>
+ [2m 99[0m | [31;1m|[0m                   <div className="card-meta">Benefícios: {c.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}</div>
+ [2m100[0m | [31;1m|[0m                   <button className="button" onClick={() => handleEnter(c)}>Entrar Agora</button>
+ [2m101[0m | [31;1m|[0m                 </div>
+ [2m102[0m | [31;1m|[0m               ))
+ [2m103[0m | [31;1m|[0m             )}
+ [2m104[0m | [31;1m|[0m           </div>
+ [2m105[0m | [31;1m|[0m           {modalOpen && selectedCircle && (
+ [2m106[0m | [31;1m|[0m             <div className="modal-overlay">
+ [2m107[0m | [31;1m|[0m               <div className="modal-box">
+ [2m108[0m | [31;1m|[0m                 <h3>Confirmar entrada no círculo</h3>
+ [2m109[0m | [31;1m|[0m                 <div className="modal-info">
+ [2m110[0m | [31;1m|[0m                   <b>{selectedCircle.name}</b> ({selectedCircle.tokenSymbol})<br />
+ [2m111[0m | [31;1m|[0m                   Preço de entrada: <b>{selectedCircle.entryPrice} SUI</b><br />
+ [2m112[0m | [31;1m|[0m                   Membros: <b>{selectedCircle.memberCount}</b><br />
+ [2m113[0m | [31;1m|[0m                   Benefícios: {selectedCircle.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}<br />
+ [2m114[0m | [31;1m|[0m                   <span className="info-text">Você será redirecionado para a wallet para confirmar a transação.</span>
+ [2m115[0m | [31;1m|[0m                 </div>
+ [2m116[0m | [31;1m|[0m                 <div className="modal-actions">
+ [2m117[0m | [31;1m|[0m                   <button className="button" onClick={handleConfirmEnter}>Confirmar</button>
+ [2m118[0m | [31;1m|[0m                   <button className="button modal-cancel" onClick={handleCloseModal}>Cancelar</button>
+ [2m119[0m | [31;1m|[0m                 </div>
+ [2m120[0m | [31;1m|[0m               </div>
+ [2m121[0m | [31;1m|[0m             </div>
+ [2m122[0m | [31;1m|[0m           )}
+ [2m123[0m | [31;1m|[0m         </main>
+ [2m124[0m | [31;1m|[0m       </>
+ [2m125[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m   );
+ [2m126[0m |     }
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:123:1]
+ [2m123[0m |       </main>
+ [2m124[0m |     </>
+ [2m125[0m |   );
+ [2m126[0m | }
+     : [31;1m^[0m
+     `----
+
+Caused by:
+    Syntax Error
+- [36mwait[39m compiling...
+- [31merror[39m ./pages/index.tsx
+Error: 
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:52:1]
+ [2m 52[0m |         alert('Entrada confirmada!');
+ [2m 53[0m |       }
+ [2m 54[0m |     
+ [2m 55[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m   return (
+ [2m 56[0m | [31;1m|[0m       <>
+ [2m 57[0m | [31;1m|[0m         <header className="main-header">
+ [2m 58[0m | [31;1m|[0m           <div className="logo-area">
+ [2m 59[0m | [31;1m|[0m             <img src="/logo.svg" alt="Logo CreatorCircles" className="logo-img" />
+ [2m 60[0m | [31;1m|[0m             <h1>CreatorCircles</h1>
+ [2m 61[0m | [31;1m|[0m           </div>
+ [2m 62[0m | [31;1m|[0m           <nav className="main-nav">
+ [2m 63[0m | [31;1m|[0m             <Link href="/" className="nav-link">Explorar Círculos</Link>
+ [2m 64[0m | [31;1m|[0m             <Link href="/dashboard" className="nav-link">Dashboard</Link>
+ [2m 65[0m | [31;1m|[0m             <Link href="/governanca" className="nav-link">Governança</Link>
+ [2m 66[0m | [31;1m|[0m             <WalletConnect />
+ [2m 67[0m | [31;1m|[0m           </nav>
+ [2m 68[0m | [31;1m|[0m         </header>
+ [2m 69[0m | [31;1m|[0m         <main>
+ [2m 70[0m | [31;1m|[0m           <h2 className="explore-title">
+ [2m 71[0m | [31;1m|[0m             <span role="img" aria-label="explorar">🌐</span> Explorar Círculos
+ [2m 72[0m | [31;1m|[0m           </h2>
+ [2m 73[0m | [31;1m|[0m           {error && (
+ [2m 74[0m | [31;1m|[0m             <div className="error">
+ [2m 75[0m | [31;1m|[0m               <span role="img" aria-label="erro">❌</span> Erro ao carregar: {error.message || 'Erro desconhecido'}<br />
+ [2m 76[0m | [31;1m|[0m               Verifique se o backend está rodando em <code>{API_URL}</code>.<br />
+ [2m 77[0m | [31;1m|[0m               <span className="info-text">Dica: execute <b>npm run dev</b> na raiz do projeto.</span>
+ [2m 78[0m | [31;1m|[0m             </div>
+ [2m 79[0m | [31;1m|[0m           )}
+ [2m 80[0m | [31;1m|[0m           {!data && !error && (
+ [2m 81[0m | [31;1m|[0m             <div className="loading-box">
+ [2m 82[0m | [31;1m|[0m               <span role="img" aria-label="carregando">⏳</span> Carregando dados reais...<br />
+ [2m 83[0m | [31;1m|[0m               <span className="info-text">Exibindo dados de exemplo</span>
+ [2m 84[0m | [31;1m|[0m             </div>
+ [2m 85[0m | [31;1m|[0m           )}
+ [2m 86[0m | [31;1m|[0m           <div className="circles-list">
+ [2m 87[0m | [31;1m|[0m             {circles.length === 0 ? (
+ [2m 88[0m | [31;1m|[0m               <div className="card">Nenhum círculo encontrado.</div>
+ [2m 89[0m | [31;1m|[0m             ) : (
+ [2m 90[0m | [31;1m|[0m               circles.map((c, idx) => (
+ [2m 91[0m | [31;1m|[0m                 <div className={`card circle-card${c.hot ? ' hot-badge' : ''}`} key={c.id || idx}>
+ [2m 92[0m | [31;1m|[0m                   <div className="card-title">
+ [2m 93[0m | [31;1m|[0m                     <span role="img" aria-label="circle">🟣</span> {c.name}
+ [2m 94[0m | [31;1m|[0m                     {c.hot && <span className="badge-hot">🔥 Hot</span>}
+ [2m 95[0m | [31;1m|[0m                   </div>
+ [2m 96[0m | [31;1m|[0m                   <div className="card-meta">Token: <b>{c.tokenSymbol}</b> &nbsp;|&nbsp; Membros: <b>{c.memberCount}</b></div>
+ [2m 97[0m | [31;1m|[0m                   <div className="card-meta">Criador: <b>{c.creator}</b></div>
+ [2m 98[0m | [31;1m|[0m                   <div className="card-meta">Preço de Entrada: <b>{c.entryPrice} SUI</b></div>
+ [2m 99[0m | [31;1m|[0m                   <div className="card-meta">Benefícios: {c.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}</div>
+ [2m100[0m | [31;1m|[0m                   <button className="button" onClick={() => handleEnter(c)}>Entrar Agora</button>
+ [2m101[0m | [31;1m|[0m                 </div>
+ [2m102[0m | [31;1m|[0m               ))
+ [2m103[0m | [31;1m|[0m             )}
+ [2m104[0m | [31;1m|[0m           </div>
+ [2m105[0m | [31;1m|[0m           {modalOpen && selectedCircle && (
+ [2m106[0m | [31;1m|[0m             <div className="modal-overlay">
+ [2m107[0m | [31;1m|[0m               <div className="modal-box">
+ [2m108[0m | [31;1m|[0m                 <h3>Confirmar entrada no círculo</h3>
+ [2m109[0m | [31;1m|[0m                 <div className="modal-info">
+ [2m110[0m | [31;1m|[0m                   <b>{selectedCircle.name}</b> ({selectedCircle.tokenSymbol})<br />
+ [2m111[0m | [31;1m|[0m                   Preço de entrada: <b>{selectedCircle.entryPrice} SUI</b><br />
+ [2m112[0m | [31;1m|[0m                   Membros: <b>{selectedCircle.memberCount}</b><br />
+ [2m113[0m | [31;1m|[0m                   Benefícios: {selectedCircle.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}<br />
+ [2m114[0m | [31;1m|[0m                   <span className="info-text">Você será redirecionado para a wallet para confirmar a transação.</span>
+ [2m115[0m | [31;1m|[0m                 </div>
+ [2m116[0m | [31;1m|[0m                 <div className="modal-actions">
+ [2m117[0m | [31;1m|[0m                   <button className="button" onClick={handleConfirmEnter}>Confirmar</button>
+ [2m118[0m | [31;1m|[0m                   <button className="button modal-cancel" onClick={handleCloseModal}>Cancelar</button>
+ [2m119[0m | [31;1m|[0m                 </div>
+ [2m120[0m | [31;1m|[0m               </div>
+ [2m121[0m | [31;1m|[0m             </div>
+ [2m122[0m | [31;1m|[0m           )}
+ [2m123[0m | [31;1m|[0m         </main>
+ [2m124[0m | [31;1m|[0m       </>
+ [2m125[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m   );
+ [2m126[0m |     }
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:123:1]
+ [2m123[0m |       </main>
+ [2m124[0m |     </>
+ [2m125[0m |   );
+ [2m126[0m | }
+     : [31;1m^[0m
+     `----
+
+Caused by:
+    Syntax Error
 - [36mwait[39m compiling /_error (client and server)...
-- [35mevent[39m compiled client and server successfully in 436 ms (212 modules)
-SyntaxError: /home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/.next/server/next-font-manifest.json: Unexpected end of JSON input
-    at parse (<anonymous>)
-[90m    at Object..json (node:internal/modules/cjs/loader:1905:39)[39m
-[90m    at Module.load (node:internal/modules/cjs/loader:1481:32)[39m
-[90m    at Module._load (node:internal/modules/cjs/loader:1300:12)[39m
-[90m    at TracingChannel.traceSync (node:diagnostics_channel:328:14)[39m
-[90m    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)[39m
-[90m    at Module.require (node:internal/modules/cjs/loader:1504:12)[39m
-[90m    at require (node:internal/modules/helpers:152:16)[39m
-    at DevServer.getNextFontManifest (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/next-server.js:812:16)
-    at DevServer.findPageComponents (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/dev/next-dev-server.js:1260:43)
-[90m    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)[39m
-    at async DevServer.renderErrorToResponseImpl (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/base-server.js:1534:26)
-    at async DevServer.pipeImpl (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/base-server.js:641:25)
-    at async Object.fn (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/next-server.js:1156:21)
-    at async Router.execute (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/router.js:315:32)
-    at async DevServer.runImpl (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/base-server.js:615:29)
-    at async DevServer.run (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/dev/next-dev-server.js:897:20)
-    at async DevServer.handleRequestImpl (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/[4mnext[24m/dist/server/base-server.js:546:20)
+- [31merror[39m ./pages/index.tsx
+Error: 
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:52:1]
+ [2m 52[0m |         alert('Entrada confirmada!');
+ [2m 53[0m |       }
+ [2m 54[0m |     
+ [2m 55[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m   return (
+ [2m 56[0m | [31;1m|[0m       <>
+ [2m 57[0m | [31;1m|[0m         <header className="main-header">
+ [2m 58[0m | [31;1m|[0m           <div className="logo-area">
+ [2m 59[0m | [31;1m|[0m             <img src="/logo.svg" alt="Logo CreatorCircles" className="logo-img" />
+ [2m 60[0m | [31;1m|[0m             <h1>CreatorCircles</h1>
+ [2m 61[0m | [31;1m|[0m           </div>
+ [2m 62[0m | [31;1m|[0m           <nav className="main-nav">
+ [2m 63[0m | [31;1m|[0m             <Link href="/" className="nav-link">Explorar Círculos</Link>
+ [2m 64[0m | [31;1m|[0m             <Link href="/dashboard" className="nav-link">Dashboard</Link>
+ [2m 65[0m | [31;1m|[0m             <Link href="/governanca" className="nav-link">Governança</Link>
+ [2m 66[0m | [31;1m|[0m             <WalletConnect />
+ [2m 67[0m | [31;1m|[0m           </nav>
+ [2m 68[0m | [31;1m|[0m         </header>
+ [2m 69[0m | [31;1m|[0m         <main>
+ [2m 70[0m | [31;1m|[0m           <h2 className="explore-title">
+ [2m 71[0m | [31;1m|[0m             <span role="img" aria-label="explorar">🌐</span> Explorar Círculos
+ [2m 72[0m | [31;1m|[0m           </h2>
+ [2m 73[0m | [31;1m|[0m           {error && (
+ [2m 74[0m | [31;1m|[0m             <div className="error">
+ [2m 75[0m | [31;1m|[0m               <span role="img" aria-label="erro">❌</span> Erro ao carregar: {error.message || 'Erro desconhecido'}<br />
+ [2m 76[0m | [31;1m|[0m               Verifique se o backend está rodando em <code>{API_URL}</code>.<br />
+ [2m 77[0m | [31;1m|[0m               <span className="info-text">Dica: execute <b>npm run dev</b> na raiz do projeto.</span>
+ [2m 78[0m | [31;1m|[0m             </div>
+ [2m 79[0m | [31;1m|[0m           )}
+ [2m 80[0m | [31;1m|[0m           {!data && !error && (
+ [2m 81[0m | [31;1m|[0m             <div className="loading-box">
+ [2m 82[0m | [31;1m|[0m               <span role="img" aria-label="carregando">⏳</span> Carregando dados reais...<br />
+ [2m 83[0m | [31;1m|[0m               <span className="info-text">Exibindo dados de exemplo</span>
+ [2m 84[0m | [31;1m|[0m             </div>
+ [2m 85[0m | [31;1m|[0m           )}
+ [2m 86[0m | [31;1m|[0m           <div className="circles-list">
+ [2m 87[0m | [31;1m|[0m             {circles.length === 0 ? (
+ [2m 88[0m | [31;1m|[0m               <div className="card">Nenhum círculo encontrado.</div>
+ [2m 89[0m | [31;1m|[0m             ) : (
+ [2m 90[0m | [31;1m|[0m               circles.map((c, idx) => (
+ [2m 91[0m | [31;1m|[0m                 <div className={`card circle-card${c.hot ? ' hot-badge' : ''}`} key={c.id || idx}>
+ [2m 92[0m | [31;1m|[0m                   <div className="card-title">
+ [2m 93[0m | [31;1m|[0m                     <span role="img" aria-label="circle">🟣</span> {c.name}
+ [2m 94[0m | [31;1m|[0m                     {c.hot && <span className="badge-hot">🔥 Hot</span>}
+ [2m 95[0m | [31;1m|[0m                   </div>
+ [2m 96[0m | [31;1m|[0m                   <div className="card-meta">Token: <b>{c.tokenSymbol}</b> &nbsp;|&nbsp; Membros: <b>{c.memberCount}</b></div>
+ [2m 97[0m | [31;1m|[0m                   <div className="card-meta">Criador: <b>{c.creator}</b></div>
+ [2m 98[0m | [31;1m|[0m                   <div className="card-meta">Preço de Entrada: <b>{c.entryPrice} SUI</b></div>
+ [2m 99[0m | [31;1m|[0m                   <div className="card-meta">Benefícios: {c.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}</div>
+ [2m100[0m | [31;1m|[0m                   <button className="button" onClick={() => handleEnter(c)}>Entrar Agora</button>
+ [2m101[0m | [31;1m|[0m                 </div>
+ [2m102[0m | [31;1m|[0m               ))
+ [2m103[0m | [31;1m|[0m             )}
+ [2m104[0m | [31;1m|[0m           </div>
+ [2m105[0m | [31;1m|[0m           {modalOpen && selectedCircle && (
+ [2m106[0m | [31;1m|[0m             <div className="modal-overlay">
+ [2m107[0m | [31;1m|[0m               <div className="modal-box">
+ [2m108[0m | [31;1m|[0m                 <h3>Confirmar entrada no círculo</h3>
+ [2m109[0m | [31;1m|[0m                 <div className="modal-info">
+ [2m110[0m | [31;1m|[0m                   <b>{selectedCircle.name}</b> ({selectedCircle.tokenSymbol})<br />
+ [2m111[0m | [31;1m|[0m                   Preço de entrada: <b>{selectedCircle.entryPrice} SUI</b><br />
+ [2m112[0m | [31;1m|[0m                   Membros: <b>{selectedCircle.memberCount}</b><br />
+ [2m113[0m | [31;1m|[0m                   Benefícios: {selectedCircle.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}<br />
+ [2m114[0m | [31;1m|[0m                   <span className="info-text">Você será redirecionado para a wallet para confirmar a transação.</span>
+ [2m115[0m | [31;1m|[0m                 </div>
+ [2m116[0m | [31;1m|[0m                 <div className="modal-actions">
+ [2m117[0m | [31;1m|[0m                   <button className="button" onClick={handleConfirmEnter}>Confirmar</button>
+ [2m118[0m | [31;1m|[0m                   <button className="button modal-cancel" onClick={handleCloseModal}>Cancelar</button>
+ [2m119[0m | [31;1m|[0m                 </div>
+ [2m120[0m | [31;1m|[0m               </div>
+ [2m121[0m | [31;1m|[0m             </div>
+ [2m122[0m | [31;1m|[0m           )}
+ [2m123[0m | [31;1m|[0m         </main>
+ [2m124[0m | [31;1m|[0m       </>
+ [2m125[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m   );
+ [2m126[0m |     }
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:123:1]
+ [2m123[0m |       </main>
+ [2m124[0m |     </>
+ [2m125[0m |   );
+ [2m126[0m | }
+     : [31;1m^[0m
+     `----
+
+Caused by:
+    Syntax Error
 - [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 1034 ms (206 modules)
+- [35mevent[39m compiled client and server successfully in 696 ms (750 modules)
+- [33mwarn[39m Fast Refresh had to perform a full reload due to a runtime error.
+- [36mwait[39m compiling / (client and server)...
+- [31merror[39m ./pages/index.tsx
+Error: 
+  [31mx[0m Return statement is not allowed here
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:54:1]
+ [2m 54[0m |         alert('Entrada confirmada!');
+ [2m 55[0m |       }
+ [2m 56[0m |     
+ [2m 57[0m | [31;1m,[0m[31;1m-[0m[31;1m>[0m   return (
+ [2m 58[0m | [31;1m|[0m       <>
+ [2m 59[0m | [31;1m|[0m         <header className="main-header">
+ [2m 60[0m | [31;1m|[0m           <div className="logo-area">
+ [2m 61[0m | [31;1m|[0m             <img src="/logo.svg" alt="Logo CreatorCircles" className="logo-img" />
+ [2m 62[0m | [31;1m|[0m             <h1>CreatorCircles</h1>
+ [2m 63[0m | [31;1m|[0m           </div>
+ [2m 64[0m | [31;1m|[0m           <nav className="main-nav">
+ [2m 65[0m | [31;1m|[0m             <Link href="/" className="nav-link">Explorar Círculos</Link>
+ [2m 66[0m | [31;1m|[0m             <Link href="/dashboard" className="nav-link">Dashboard</Link>
+ [2m 67[0m | [31;1m|[0m             <Link href="/governanca" className="nav-link">Governança</Link>
+ [2m 68[0m | [31;1m|[0m             <WalletConnect />
+ [2m 69[0m | [31;1m|[0m           </nav>
+ [2m 70[0m | [31;1m|[0m         </header>
+ [2m 71[0m | [31;1m|[0m         <main>
+ [2m 72[0m | [31;1m|[0m           <h2 className="explore-title">
+ [2m 73[0m | [31;1m|[0m             <span role="img" aria-label="explorar">🌐</span> Explorar Círculos
+ [2m 74[0m | [31;1m|[0m           </h2>
+ [2m 75[0m | [31;1m|[0m           {error && (
+ [2m 76[0m | [31;1m|[0m             <div className="error">
+ [2m 77[0m | [31;1m|[0m               <span role="img" aria-label="erro">❌</span> Erro ao carregar: {error.message || 'Erro desconhecido'}<br />
+ [2m 78[0m | [31;1m|[0m               Verifique se o backend está rodando em <code>{API_URL}</code>.<br />
+ [2m 79[0m | [31;1m|[0m               <span className="info-text">Dica: execute <b>npm run dev</b> na raiz do projeto.</span>
+ [2m 80[0m | [31;1m|[0m             </div>
+ [2m 81[0m | [31;1m|[0m           )}
+ [2m 82[0m | [31;1m|[0m           {!data && !error && (
+ [2m 83[0m | [31;1m|[0m             <div className="loading-box">
+ [2m 84[0m | [31;1m|[0m               <span role="img" aria-label="carregando">⏳</span> Carregando dados reais...<br />
+ [2m 85[0m | [31;1m|[0m               <span className="info-text">Exibindo dados de exemplo</span>
+ [2m 86[0m | [31;1m|[0m             </div>
+ [2m 87[0m | [31;1m|[0m           )}
+ [2m 88[0m | [31;1m|[0m           <div className="circles-list">
+ [2m 89[0m | [31;1m|[0m             {circles.length === 0 ? (
+ [2m 90[0m | [31;1m|[0m               <div className="card">Nenhum círculo encontrado.</div>
+ [2m 91[0m | [31;1m|[0m             ) : (
+ [2m 92[0m | [31;1m|[0m               circles.map((c, idx) => (
+ [2m 93[0m | [31;1m|[0m                 <div className={`card circle-card${c.hot ? ' hot-badge' : ''}`} key={c.id || idx}>
+ [2m 94[0m | [31;1m|[0m                   <div className="card-title">
+ [2m 95[0m | [31;1m|[0m                     <span role="img" aria-label="circle">🟣</span> {c.name}
+ [2m 96[0m | [31;1m|[0m                     {c.hot && <span className="badge-hot">🔥 Hot</span>}
+ [2m 97[0m | [31;1m|[0m                   </div>
+ [2m 98[0m | [31;1m|[0m                   <div className="card-meta">Token: <b>{c.tokenSymbol}</b> &nbsp;|&nbsp; Membros: <b>{c.memberCount}</b></div>
+ [2m 99[0m | [31;1m|[0m                   <div className="card-meta">Criador: <b>{c.creator}</b></div>
+ [2m100[0m | [31;1m|[0m                   <div className="card-meta">Preço de Entrada: <b>{c.entryPrice} SUI</b></div>
+ [2m101[0m | [31;1m|[0m                   <div className="card-meta">Benefícios: {c.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}</div>
+ [2m102[0m | [31;1m|[0m                   <button className="button" onClick={() => handleEnter(c)}>Entrar Agora</button>
+ [2m103[0m | [31;1m|[0m                 </div>
+ [2m104[0m | [31;1m|[0m               ))
+ [2m105[0m | [31;1m|[0m             )}
+ [2m106[0m | [31;1m|[0m           </div>
+ [2m107[0m | [31;1m|[0m           {modalOpen && selectedCircle && (
+ [2m108[0m | [31;1m|[0m             <div className="modal-overlay">
+ [2m109[0m | [31;1m|[0m               <div className="modal-box">
+ [2m110[0m | [31;1m|[0m                 <h3>Confirmar entrada no círculo</h3>
+ [2m111[0m | [31;1m|[0m                 <div className="modal-info">
+ [2m112[0m | [31;1m|[0m                   <b>{selectedCircle.name}</b> ({selectedCircle.tokenSymbol})<br />
+ [2m113[0m | [31;1m|[0m                   Preço de entrada: <b>{selectedCircle.entryPrice} SUI</b><br />
+ [2m114[0m | [31;1m|[0m                   Membros: <b>{selectedCircle.memberCount}</b><br />
+ [2m115[0m | [31;1m|[0m                   Benefícios: {selectedCircle.benefits?.map(b => <span key={b} className="benefit-item">• {b}</span>)}<br />
+ [2m116[0m | [31;1m|[0m                   <span className="info-text">Você será redirecionado para a wallet para confirmar a transação.</span>
+ [2m117[0m | [31;1m|[0m                 </div>
+ [2m118[0m | [31;1m|[0m                 <div className="modal-actions">
+ [2m119[0m | [31;1m|[0m                   <button className="button" onClick={handleConfirmEnter}>Confirmar</button>
+ [2m120[0m | [31;1m|[0m                   <button className="button modal-cancel" onClick={handleCloseModal}>Cancelar</button>
+ [2m121[0m | [31;1m|[0m                 </div>
+ [2m122[0m | [31;1m|[0m               </div>
+ [2m123[0m | [31;1m|[0m             </div>
+ [2m124[0m | [31;1m|[0m           )}
+ [2m125[0m | [31;1m|[0m         </main>
+ [2m126[0m | [31;1m|[0m       </>
+ [2m127[0m | [31;1m`[0m[31;1m-[0m[31;1m>[0m   );
+ [2m128[0m |     }
+     `----
+
+  [31mx[0m Expression expected
+     ,-[[36;1;4m/home/jistriane/Documentos/Projetos/CreatorCircles/packages/frontend/pages/index.tsx[0m:125:1]
+ [2m125[0m |       </main>
+ [2m126[0m |     </>
+ [2m127[0m |   );
+ [2m128[0m | }
+     : [31;1m^[0m
+     `----
+
+Caused by:
+    Syntax Error
 - [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 440 ms (206 modules)
+- [35mevent[39m compiled client and server successfully in 670 ms (750 modules)
+- [33mwarn[39m Fast Refresh had to perform a full reload due to a runtime error.
+- [36mwait[39m compiling / (client and server)...
+- [35mevent[39m compiled client and server successfully in 299 ms (759 modules)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+Warning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.
+    at WalletConnectionManager (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1581:3)
+    at WalletProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:1548:3)
+    at SuiClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@mysten/dapp-kit/dist/esm/index.js:662:11)
+    at QueryClientProvider (file:///home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js:20:3)
+    at MyApp (webpack-internal:///./pages/_app.tsx:40:18)
+    at StyleRegistry (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/shared/lib/router/adapters.js:78:11)
+    at AppContainer (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:341:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:377:57)
+    at div
+    at Body (/home/jistriane/Documentos/Projetos/CreatorCircles/node_modules/next/dist/server/render.js:677:21)
+- [36mwait[39m compiling /governanca...
+- [35mevent[39m compiled client and server successfully in 157 ms (763 modules)
 - [36mwait[39m compiling...
-- [36mwait[39m compiling /_error (client and server)...
-- [35mevent[39m compiled client and server successfully in 938 ms (208 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 298 ms (208 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 1189 ms (206 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 1024 ms (206 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 265 ms (206 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 215 ms (206 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 298 ms (206 modules)
+- [35mevent[39m compiled client and server successfully in 315 ms (761 modules)
 - [36mwait[39m compiling /dashboard...
-- [35mevent[39m compiled client and server successfully in 207 ms (210 modules)
-- [36mwait[39m compiling /_error (client and server)...
-- [35mevent[39m compiled client and server successfully in 330 ms (212 modules)
-- [36mwait[39m compiling...
-- [35mevent[39m compiled client and server successfully in 460 ms (212 modules)
+- [35mevent[39m compiled client and server successfully in 130 ms (765 modules)

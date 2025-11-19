@@ -1,3 +1,36 @@
+.circle-form {
+  margin-bottom: 24px;
+}
+.form-group {
+  margin-bottom: 12px;
+}
+.preview-card {
+  margin-top: 16px;
+}
+.preview-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.benefit-item {
+  margin-right: 8px;
+}
+.benefit-label {
+  margin-right: 16px;
+}
+.input-file {
+  margin-left: 8px;
+}
+.preview-btn {
+  margin-left: 12px;
+}
+.divider {
+  margin: 32px 0;
+  border: none;
+  border-top: 2px solid #eef2ff;
+}
 .comprarContainer {
   margin-top: 8px;
 }
