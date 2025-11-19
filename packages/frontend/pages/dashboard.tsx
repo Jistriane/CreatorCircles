@@ -1,4 +1,5 @@
 
+import React from 'react';
 import WalletConnect from '../components/WalletConnect';
 import { useState } from 'react';
 import useSWR from 'swr';

@@ -1,41 +1,48 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills.js"
+    "static/chunks/polyfills-78c92fac7aa8fdd8.js"
   ],
-  "devFiles": [
-    "static/chunks/react-refresh.js"
-  ],
+  "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/development/_buildManifest.js",
-    "static/development/_ssgManifest.js"
+    "static/EmVka9Mw3ldhvCa1PJw3v/_buildManifest.js",
+    "static/EmVka9Mw3ldhvCa1PJw3v/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
     "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/webpack-880e48e2fc817058.js",
+      "static/chunks/framework-454d74e694af5bc1.js",
+      "static/chunks/main-c8ac83fa3e388728.js",
+      "static/chunks/381-878764c5e6b38f52.js",
+      "static/chunks/pages/index-c20b936e8cf82aa5.js"
     ],
     "/_app": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_app.js"
+      "static/chunks/webpack-880e48e2fc817058.js",
+      "static/chunks/framework-454d74e694af5bc1.js",
+      "static/chunks/main-c8ac83fa3e388728.js",
+      "static/css/e91166fe4ef92637.css",
+      "static/chunks/pages/_app-c6ec816f555839f3.js"
     ],
     "/_error": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/_error.js"
+      "static/chunks/webpack-880e48e2fc817058.js",
+      "static/chunks/framework-454d74e694af5bc1.js",
+      "static/chunks/main-c8ac83fa3e388728.js",
+      "static/chunks/pages/_error-d11cb7facb2c59a4.js"
     ],
     "/dashboard": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/dashboard.js"
+      "static/chunks/webpack-880e48e2fc817058.js",
+      "static/chunks/framework-454d74e694af5bc1.js",
+      "static/chunks/main-c8ac83fa3e388728.js",
+      "static/chunks/381-878764c5e6b38f52.js",
+      "static/chunks/pages/dashboard-075da905ee26d3e8.js"
     ],
     "/governanca": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/governanca.js"
+      "static/chunks/webpack-880e48e2fc817058.js",
+      "static/chunks/framework-454d74e694af5bc1.js",
+      "static/chunks/main-c8ac83fa3e388728.js",
+      "static/chunks/381-878764c5e6b38f52.js",
+      "static/chunks/pages/governanca-0ddcb1d9fa92dfcf.js"
     ]
   },
   "ampFirstPages": []
