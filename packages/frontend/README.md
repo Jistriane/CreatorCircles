@@ -26,14 +26,26 @@ Links de produção:
 
 ## Como rodar localmente
 
+
 1. Instale as dependências:
+
    ```bash
    npm install
    ```
+
 2. Inicie o servidor de desenvolvimento:
+
    ```bash
    npm run dev
    ```
+
+## Acesso local
+
+- Frontend: [http://localhost:3000/](http://localhost:3000/)
+
+### Interface
+
+![Interface CreatorCircles](../../screenshot.png)
 
 ## Estrutura
 

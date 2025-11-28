@@ -7,6 +7,7 @@ Este projeto é o backend do CreatorCircles, desenvolvido em Node.js + TypeScrip
 
 ## Como rodar localmente
 
+
 1. Instale as dependências:
 
    ```bash
@@ -18,6 +19,14 @@ Este projeto é o backend do CreatorCircles, desenvolvido em Node.js + TypeScrip
    ```bash
    npm run dev
    ```
+
+## Acesso local
+
+- Backend: [http://localhost:3001/](http://localhost:3001/)
+
+### Interface
+
+![Interface CreatorCircles](../../screenshot.png)
 
 ## Estrutura
 

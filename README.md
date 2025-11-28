@@ -93,7 +93,9 @@ CreatorCircles é uma plataforma Web3 para gestão de círculos de criadores, co
 
 ## Deploy
 
-- **Frontend Vercel:** [https://frontend-jistrianedroid-3423s-projects.vercel.app/](https://frontend-jistrianedroid-3423s-projects.vercel.app/)
+- **Frontend Vercel:**
+  - [https://frontend-jistrianedroid-3423s-projects.vercel.app/](https://frontend-jistrianedroid-3423s-projects.vercel.app/)
+  - [https://frontend-lckujvw7x-jistrianedroid-3423s-projects.vercel.app/](https://frontend-lckujvw7x-jistrianedroid-3423s-projects.vercel.app/)
 - **Backend Vercel:** [https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app](https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app)
 - Configure variáveis de ambiente conforme `.env.example` em cada pacote.
 - O frontend usa `NEXT_PUBLIC_API_URL` para apontar para o backend.
