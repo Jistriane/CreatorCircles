@@ -16,9 +16,13 @@ Este projeto é o frontend do CreatorCircles, desenvolvido com Next.js + TypeScr
 
 ## Deploy
 
+
 Deploy automático via Vercel. Projeto vinculado ao escopo `jistrianedroid-3423s-projects`.
 
-🔗 [Acesse o frontend em produção](https://frontend-jistrianedroid-3423s-projects.vercel.app/)
+Links de produção:
+
+- [frontend-jistrianedroid-3423s-projects.vercel.app](https://frontend-jistrianedroid-3423s-projects.vercel.app)
+- [frontend-lckujvw7x-jistrianedroid-3423s-projects.vercel.app](https://frontend-lckujvw7x-jistrianedroid-3423s-projects.vercel.app)
 
 ## Como rodar localmente
 
