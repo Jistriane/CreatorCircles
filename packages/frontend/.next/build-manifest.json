@@ -1,72 +1,41 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-78c92fac7aa8fdd8.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/-H5yimLyIzLBCAfYwykcn/_buildManifest.js",
-    "static/-H5yimLyIzLBCAfYwykcn/_ssgManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
     "/": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/381-878764c5e6b38f52.js",
-      "static/chunks/pages/index-0724122e42cce8c3.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/css/ea5afd24ede173ce.css",
-      "static/chunks/pages/_app-d152de7cb3e3c058.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/pages/_error-d11cb7facb2c59a4.js"
-    ],
-    "/ajustar-preco": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/pages/ajustar-preco-dc026732d0cc67c1.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
     ],
     "/dashboard": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/381-878764c5e6b38f52.js",
-      "static/chunks/pages/dashboard-7c543cae5d5c3385.js"
-    ],
-    "/emitir-nft": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/pages/emitir-nft-b9c9411cbc5df9bb.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/dashboard.js"
     ],
     "/governanca": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/381-878764c5e6b38f52.js",
-      "static/chunks/pages/governanca-64b7b0ed42dee2ac.js"
-    ],
-    "/nova-proposta": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/pages/nova-proposta-51aa980bb1b90add.js"
-    ],
-    "/ver-propostas": [
-      "static/chunks/webpack-5146130448d8adf7.js",
-      "static/chunks/framework-454d74e694af5bc1.js",
-      "static/chunks/main-c8ac83fa3e388728.js",
-      "static/chunks/pages/ver-propostas-fa09fe0ff807338e.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/governanca.js"
     ]
   },
   "ampFirstPages": []

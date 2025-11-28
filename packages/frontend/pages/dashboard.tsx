@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Image from 'next/image';
 import WalletConnect from '../components/WalletConnect';
 import { useState } from 'react';
 import useSWR from 'swr';
@@ -29,7 +30,7 @@ function CirclePreview({ circle }: { circle: Partial<Circle> }) {
   return (
     <div className="card circle-card preview-card">
       {circle.image && (
-        <img src={circle.image} alt="Preview" className="preview-img" />
+        <Image src={circle.image} alt="Preview" className="preview-img" width={120} height={120} />
       )}
       <div className="card-title">{circle.name ? `${circle.name} (${circle.tokenSymbol})` : 'Preview do Círculo'}</div>
       <div className="card-meta">{circle.description}</div>

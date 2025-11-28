@@ -1,14 +1,8 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/ajustar-preco": "pages/ajustar-preco.html",
-  "/api/health": "pages/api/health.js",
-  "/dashboard": "pages/dashboard.html",
-  "/emitir-nft": "pages/emitir-nft.html",
-  "/": "pages/index.html",
-  "/nova-proposta": "pages/nova-proposta.html",
-  "/governanca": "pages/governanca.html",
-  "/ver-propostas": "pages/ver-propostas.html",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/governanca": "pages/governanca.js",
+  "/dashboard": "pages/dashboard.js"
 }
