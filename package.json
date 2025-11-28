@@ -8,7 +8,7 @@
     "dev": "cd packages/backend && npm run dev & cd packages/frontend && npm run dev",
     "test": "npm -w backend test",
     "lint": "npm -w backend run lint || true && npm -w frontend run lint || true",
-    "prepare": "husky install"
+    // ...existing code...
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
