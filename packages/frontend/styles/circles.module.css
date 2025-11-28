@@ -8,19 +8,31 @@
   border: 1.5px solid #2575fc;
   font-family: 'Inter', 'Orbitron', Arial, sans-serif;
   margin-bottom: 32px;
+  transition: box-shadow 0.5s, background 0.7s;
+}
+body[data-theme='dark'] .container {
+  background: linear-gradient(120deg, #181a1b 70%, #00ffe7 100%);
+  box-shadow: 0 0 32px #00ffe7, 0 0 64px #2575fc;
+  border: 1.5px solid #00ffe7;
 }
 
 .exampleInfo {
-  font-size: 13px;
-  color: #00ffe7;
-  font-family: 'Inter', Arial, sans-serif;
-  text-shadow: 0 0 8px #00ffe7;
-}
-
-.tokenSymbol {
+  margin-bottom: 12px;
+  background: rgba(106,17,203,0.18);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #2575fc;
+  padding: 18px;
+  border: 1.5px solid #00ffe7;
+  transition: box-shadow 0.5s, transform 0.3s, background 0.7s;
   color: #00ffe7;
   font-family: 'Orbitron', Arial, sans-serif;
   font-weight: 700;
+}
+
+body[data-theme='dark'] .circleItem {
+  background: linear-gradient(120deg, #181a1b 60%, #2575fc 100%);
+  box-shadow: 0 0 24px #00ffe7, 0 0 48px #2575fc;
+  border: 1.5px solid #00ffe7;
 }
 
 .memberCount {

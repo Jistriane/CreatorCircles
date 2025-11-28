@@ -16,7 +16,7 @@ export function validateEnv() {
 }
 
 export function getPort(): number {
-  const p = process.env.BACKEND_PORT || process.env.PORT || '3000';
+  const p = process.env.BACKEND_PORT || process.env.PORT || '3001';
   return Number(p);
 }
 

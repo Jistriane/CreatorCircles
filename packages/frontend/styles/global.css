@@ -32,30 +32,45 @@
   width: 100%;
   animation: fadeIn 0.5s;
 }
-.modal-info {
-  margin-bottom: 18px;
+ .modal-info {
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-.modal-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-end;
-}
+
 .modal-cancel {
   background: #e11d48;
 }
-@media (max-width: 600px) {
-  .modal-box {
-    padding: 16px 8px;
-    max-width: 98vw;
-  }
+
+body[data-theme='dark'] {
+  background: linear-gradient(120deg, #181a1b 70%, #00ffe7 100%);
+  color: #f8f9fa;
+  box-shadow: 0 0 32px #00ffe744, 0 0 64px #2575fc22;
 }
-.detect-btn {
-  margin-top: 8px;
+@media (max-width: 600px) {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.12);
+  padding: 32px 28px;
+  max-width: 340px;
+  width: 100%;
+  animation: fadeIn 0.5s;
+  transition: box-shadow 0.5s, background 0.7s;
+}
+body[data-theme='dark'] .modal-box {
+  background: rgba(24,26,27,0.98);
+  box-shadow: 0 0 32px #00ffe7, 0 0 64px #2575fc;
 }
 .governanca-main {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 0;
+  background: #fbbf24;
+  color: #fff;
+  transition: background 0.5s, color 0.4s;
+}
+body[data-theme='dark'] .badge-hot {
+  background: #00ffe7;
+  color: #181a1b;
+  box-shadow: 0 0 8px #00ffe7;
 }
 .propostas-list {
   display: grid;
