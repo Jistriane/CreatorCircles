@@ -65,25 +65,39 @@ CreatorCircles é uma plataforma Web3 para gestão de círculos de criadores, co
 
 ## Como rodar localmente
 
+
+
+
 1. Instale as dependências:
 
-   ```bash
-   npm install
-   ```
+  ```bash
+  npm install
+  ```
 
-2. Inicie o backend:
 
-   ```bash
-   cd packages/backend
-   npm run dev
-   ```
+1. Inicie o backend:
 
-3. Inicie o frontend:
+  ```bash
+  cd packages/backend
+  npm run dev
+  ```
 
-   ```bash
-   cd packages/frontend
-   npm run dev
-   ```
+  Acesse o backend em: [http://localhost:3001/](http://localhost:3001/)
+
+
+1. Inicie o frontend:
+
+  ```bash
+  cd packages/frontend
+  npm run dev
+  ```
+
+  Acesse o frontend em: [http://localhost:3000/](http://localhost:3000/)
+
+
+### Interface
+
+![Interface CreatorCircles](screenshot.png)
 
 ## Integração Sui
 
@@ -126,9 +140,10 @@ CreatorCircles é uma plataforma Web3 para gestão de círculos de criadores, co
 - Utilize o Sui CLI ou SDK para interagir com os módulos publicados.
 - Exemplo de chamada:
 
-   ```bash
-   sui client call --package 0xa3ab904db4e864739b2c549f48c7f013ef6a09e9f0b4a64320898e57e7926806 --module circle_factory --function <função> --args ...
-   ```
+
+  ```bash
+  sui client call --package 0xa3ab904db4e864739b2c549f48c7f013ef6a09e9f0b4a64320898e57e7926806 --module circle_factory --function <função> --args ...
+  ```
 - Consulte a documentação dos módulos para detalhes de cada função.
 
 ### Observações
@@ -174,6 +189,7 @@ Dúvidas ou sugestões? Abra uma issue ou entre em contato com [Jistriane](mailt
 ### Autenticação
 
 `POST /api/auth/login`
+
 - Autentica usuário via WAL Wallet
 - Body: `{ address: string, signature: string }`
 - Response: `{ token: string, expiresIn: number }`
@@ -181,11 +197,13 @@ Dúvidas ou sugestões? Abra uma issue ou entre em contato com [Jistriane](mailt
 ### Círculos
 
 `GET /api/circles`
+
 - Lista todos os círculos
 - Query params: `?limit=20&offset=0`
 - Response: `[{ id, name, creator, members, ... }]`
 
 `POST /api/circles`
+
 - Cria novo círculo
 - Body: `{ name, symbol, description, entryPrice, maxMembers }`
 - Response: `{ id, ... }`
@@ -193,15 +211,18 @@ Dúvidas ou sugestões? Abra uma issue ou entre em contato com [Jistriane](mailt
 ### Governança
 
 `GET /api/governance/proposals?circleId=<id>`
+
 - Lista propostas de governança de um círculo
 - Response: `[{ id, description, votesFor, votesAgainst, ... }]`
 
 `POST /api/governance/proposals`
+
 - Cria nova proposta
 - Body: `{ circleId, description, startTime, endTime }`
 - Response: `{ id, ... }`
 
 `POST /api/governance/vote`
+
 - Vota em uma proposta
 - Body: `{ proposalId, support, tokenBalance }`
 - Response: `{ success: true }`
@@ -209,12 +230,14 @@ Dúvidas ou sugestões? Abra uma issue ou entre em contato com [Jistriane](mailt
 ### Marketplace
 
 `GET /api/marketplace`
+
 - Lista círculos disponíveis para compra/entrada
 - Response: `[{ id, name, price, ... }]`
 
 ### Health Check
 
 `GET /api/health`
+
 - Verifica status dos serviços (Sui RPC, IPFS, DB)
 - Response: `{ status: 'healthy' | 'degraded' | 'error', checks: { sui_rpc, ipfs_gateway, database } }`
 
@@ -222,7 +245,9 @@ Dúvidas ou sugestões? Abra uma issue ou entre em contato com [Jistriane](mailt
 
 ## Exemplos de Uso
 
+
 ### Criar Círculo
+
 ```bash
 curl -X POST https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app/api/circles \
   -H 'Authorization: Bearer <token>' \
@@ -231,6 +256,7 @@ curl -X POST https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app/
 ```
 
 ### Votar em Proposta
+
 ```bash
 curl -X POST https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app/api/governance/vote \
   -H 'Authorization: Bearer <token>' \
@@ -239,6 +265,7 @@ curl -X POST https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app/
 ```
 
 ### Health Check
+
 ```bash
 curl https://backend-5o8kmvuxk-jistrianedroid-3423s-projects.vercel.app/api/health
 ```
