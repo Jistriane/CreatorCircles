@@ -97,7 +97,7 @@ CreatorCircles é uma plataforma Web3 para gestão de círculos de criadores, co
 
 ### Interface
 
-![Interface CreatorCircles](screenshot.png)
+![Interface CreatorCircles](Frontend.png)
 
 ## Integração Sui
 
