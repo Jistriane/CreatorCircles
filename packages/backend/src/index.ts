@@ -24,6 +24,18 @@ logger.info('Backend CreatorCircles inicializado');
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Rota raiz '/' para evitar 404
+app.get('/', (req, res) => {
+	res.send('<h1>CreatorCircles Backend</h1><p>API está rodando. Consulte /health para status.</p>');
+});
+
+// Rota para servir o arquivo .well-known/appspecific/com.chrome.devtools.json com header CSP permissivo
+app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+	res.setHeader('Content-Type', 'application/json');
+	res.setHeader('Content-Security-Policy', "default-src 'self'; connect-src 'self' http://localhost:3000 ws://localhost:3000;");
+	res.send(JSON.stringify({ dummy: true }));
+});
 import metricsRouter from './routes/metrics.js';
 app.use('/metrics', metricsRouter);
 

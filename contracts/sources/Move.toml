@@ -1,0 +1,10 @@
+[package]
+name = "creator_circles"
+authors = ["Jistriane"]
+version = "1.0.0"
+
+[addresses]
+creator_circles = "0x0"
+
+[dependencies]
+sui = { local = "../../sui-framework" }

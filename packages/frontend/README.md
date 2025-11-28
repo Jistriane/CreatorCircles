@@ -1,21 +1,24 @@
 # CreatorCircles Frontend
 
-Este projeto é o frontend do CreatorCircles, desenvolvido com Next.js.
+Este projeto é o frontend do CreatorCircles, desenvolvido com Next.js + TypeScript, integrado ao Sui via dApp Kit e WAL Wallet.
+
+## Funcionalidades
+
+- Explorar, criar e gerenciar círculos
+- Dashboard do criador com analytics
+- Marketplace de círculos
+- Governança on-chain
+- Integração WAL Wallet e Sui dApp Kit
+- Internacionalização (i18n)
+- Tema escuro/claro
+- Health check API
+- Templates legais (ToS, Privacy Policy, Utility Statement)
 
 ## Deploy
 
-O deploy automático é realizado na Vercel. O projeto está vinculado ao escopo `jistrianedroid-3423s-projects` e ao projeto Vercel chamado `frontend`.
+Deploy automático via Vercel. Projeto vinculado ao escopo `jistrianedroid-3423s-projects`.
 
-## 🔗 Link de Produção
-
-**Acesse o frontend em produção:**
-
-👉 [https://frontend-jistrianedroid-3423s-projects.vercel.app/](https://frontend-jistrianedroid-3423s-projects.vercel.app/)
-
-## Atualizações recentes
-
-- Deploy automático seguro realizado em 18/11/2025 via Vercel, sem alterações de lógica no código.
-- Correção de erro de build: adicionada importação do React nos arquivos `dashboard.tsx` e `index.tsx` para compatibilidade com Next.js 13+.
+🔗 [Acesse o frontend em produção](https://frontend-jistrianedroid-3423s-projects.vercel.app/)
 
 ## Como rodar localmente
 
@@ -29,14 +32,25 @@ O deploy automático é realizado na Vercel. O projeto está vinculado ao escopo
    ```
 
 ## Estrutura
-- `pages/` - Páginas do Next.js
+
+- `pages/` - Páginas Next.js
 - `components/` - Componentes reutilizáveis
-- `public/` - Arquivos estáticos
-- `styles/` - Estilos CSS
+- `hooks/` - Hooks customizados (ex: useCreateCircle)
+- `services/` - Integrações GraphQL, Oracle, etc
+- `public/` - Arquivos estáticos e templates legais
+- `styles/` - Estilos CSS e tema
 
 ## Observações
-- O deploy é feito automaticamente na Vercel ao subir alterações na branch principal.
-- Variáveis de ambiente sensíveis devem ser configuradas diretamente na dashboard da Vercel.
+
+- Variáveis de ambiente sensíveis devem ser configuradas na dashboard Vercel
+- O frontend usa `NEXT_PUBLIC_API_URL` para apontar para o backend
+
+## Links Úteis
+
+- [Documentação WAL Wallet](https://docs.wal.app/)
+- [SDK Sui Typescript](https://sdk.mystenlabs.com/typescript)
+- [Guia Sui Oficial](https://docs.sui.io/guides)
 
 ## Contato
+
 Dúvidas ou sugestões: [Jistriane](mailto:jistriane@exemplo.com)

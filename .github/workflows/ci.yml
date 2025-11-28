@@ -37,6 +37,10 @@ jobs:
         run: |
           npm -w frontend install
           npm -w frontend run build
+      - name: Sui Move build
+        run: cd contracts/sources && sui move build
+      - name: Sui Move test
+        run: cd contracts/sources && sui move test
 
   move-check:
     runs-on: ubuntu-latest

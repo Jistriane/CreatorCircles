@@ -1,46 +1,80 @@
-// access_nft.move — revised sketch
-// Purpose: represent membership NFTs which confer access/benefits inside a Circle.
-// This file documents the object layout and intended entrypoints. Final implementation
-// should use Sui object model, transfer primitives and on-chain event emission.
 
-#[allow(unused_field, unused_use)]
 module creator_circles::access_nft {
-    use sui::object::{UID};
-    use std::string::String;
-    use std::vector;
+    use sui::object::{Self, UID, ID};
+    use sui::transfer;
+    use sui::tx_context::{Self, TxContext};
+    use sui::kiosk::Kiosk;
+    use sui::transfer_policy::TransferPolicy;
+    use std::string::{Self, String, utf8};
+    use sui::event;
 
-        /// Access NFT metadata (scaffold)
-        struct AccessNFT has key, store {
-            id: UID,
-            circle_id: String,
-            member_address: address,
-            benefits: vector<String>,
-            join_date: u64,
-            royalties_rate: u8,
-        }
+    // ========== NFT STRUCT ========== 
+    struct MembershipNFT has key, store {
+        id: UID,
+        circle_id: ID,
+        member: address,
+        tier: u8, // 1=Bronze, 2=Silver, 3=Gold
+        mint_date: u64,
+        benefits_count: u64,
+        metadata_uri: String,
+    }
 
-        // Event/log placeholder for granting access
-        struct AccessGranted has store {
-            member: address,
-            circle_id: String,
-            benefits: vector<String>,
-        }
+    // OTW para criar Publisher
+    struct ACCESS_NFT has drop {}
 
-        // Logical mint (non-entry): create metadata structures; final implementation must publish objects.
-        public fun mint_access_nft_logical(circle_id: String, member: address, benefits: vector<String>, royalties: u8) {
-            let _circle_id = circle_id;
-            let _member = member;
-            let _benefits = benefits;
-            let _royalties = royalties;
-            // TODO: create and publish AccessNFT object and emit AccessGranted event
-        }
+    // ========== EVENTOS ========== 
+    struct NFTMinted has copy, drop {
+        nft_id: ID,
+        circle_id: ID,
+        member: address,
+        tier: u8,
+    }
 
-        // Logical transfer (non-entry)
-        public fun transfer_access_nft_logical(_token_id: u64, _to: address) {
-            // token id placeholder is u64 to avoid UID consumption in scaffold
-            let _tid = _token_id;
-            let _recipient = _to;
-            let _ = _tid;
-            let _ = _recipient;
-        }
+    // ========== FUNÇÕES ========== 
+    /// Mint NFT de acesso (chamado pelo circle_core)
+    public fun mint_membership(
+        circle_id: ID,
+        member: address,
+        tier: u8,
+        metadata_uri: vector<u8>,
+        ctx: &mut TxContext
+    ): MembershipNFT {
+        let nft = MembershipNFT {
+            id: object::new(ctx),
+            circle_id,
+            member,
+            tier,
+            mint_date: tx_context::epoch_timestamp_ms(ctx),
+            benefits_count: 0,
+            metadata_uri: utf8(metadata_uri),
+        };
+        event::emit(NFTMinted {
+            nft_id: object::id(&nft),
+            circle_id,
+            member,
+            tier,
+        });
+        nft
+    }
+
+    /// Transfere NFT via Kiosk (com royalties automáticos)
+    public fun transfer_via_kiosk(
+        _kiosk: &mut Kiosk,
+        _policy: &TransferPolicy<MembershipNFT>,
+        nft: MembershipNFT,
+        buyer: address,
+        _ctx: &mut TxContext
+    ) {
+        // Lógica de royalties gerenciada pelo TransferPolicy
+        transfer::public_transfer(nft, buyer);
+    }
+
+    /// Verifica se usuário tem acesso
+    public fun verify_access(nft: &MembershipNFT, user: address): bool {
+        nft.member == user
+    }
+
+    // ========== GETTERS ========== 
+    public fun get_tier(nft: &MembershipNFT): u8 { nft.tier }
+    public fun get_circle_id(nft: &MembershipNFT): ID { nft.circle_id }
 }

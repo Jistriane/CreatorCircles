@@ -1,6 +1,7 @@
 // ...existing code...
 import useSWR from 'swr'
 import { useState } from 'react'
+import Link from 'next/link'
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json())
 
@@ -74,11 +75,11 @@ export default function Governanca() {
           <div className="card metric-card">Taxa de Retenção: <b>{metrics.retencao}%</b></div>
           <div className="card metric-card">Valor Bloqueado: <b>{metrics.bloqueado} SUI</b></div>
         </div>
-        <div className="quick-actions">
-          <button className="button">Emitir NFT Mensal</button>
-          <button className="button">Nova Proposta</button>
-          <button className="button">Ajustar Preço</button>
-          <button className="button">Ver Propostas</button>
+        <div className="quick-actions" style={{display:'flex',gap:16,flexWrap:'wrap'}}>
+          <Link href="/emitir-nft" passHref legacyBehavior><button className="button">Emitir NFT Mensal</button></Link>
+          <Link href="/nova-proposta" passHref legacyBehavior><button className="button">Nova Proposta</button></Link>
+          <Link href="/ajustar-preco" passHref legacyBehavior><button className="button">Ajustar Preço</button></Link>
+          <Link href="/ver-propostas" passHref legacyBehavior><button className="button">Ver Propostas</button></Link>
         </div>
         <hr className="divider" />
         <h2 className="dashboard-section-title">Governança do Círculo</h2>

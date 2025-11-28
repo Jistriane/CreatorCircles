@@ -1,123 +1,174 @@
-// circle_token.move — stable scaffold with pure helpers to allow `sui move check` to pass.
-// This module intentionally keeps logic off-chain friendly and avoids low-level
-// `TxContext`/`object::new` calls until we're ready to wire Sui object lifecycle.
 
-#[allow(unused_field, unused_use)]
 module creator_circles::circle_token {
-    use sui::object::UID;
-    use sui::tx_context::TxContext;
+    use sui::coin::{Self, Coin, TreasuryCap};
+    use sui::tx_context::{Self, TxContext};
     use sui::transfer;
-    use std::string::String;
+    use sui::object::{Self, UID, ID};
+    use sui::balance::{Self, Balance};
+    use sui::sui::SUI;
+    use sui::dynamic_field as df;
+    use std::string::{Self, String};
 
-    /// Circle metadata object (scaffold)
-    struct CircleInfo has key, store {
+    // ========== STRUCTS ========== 
+    struct CIRCLE_TOKEN has drop {} // OTW
+
+    /// Compartilhado para acesso múltiplo
+    struct CircleRegistry has key {
+        id: UID,
+        circles: vector<ID>, // IDs de todos os círculos
+    }
+
+    /// Cada círculo é um shared object
+    struct Circle has key {
         id: UID,
         creator: address,
+        name: String,
         symbol: String,
-        total_supply: u64,
         entry_price: u64,
+        treasury: Balance<SUI>,
+        members_count: u64,
+        total_supply: u64,
+        is_active: bool,
     }
 
-    /// Per-account balance object for a given Circle
-    struct Balance has key, store {
-        id: UID,
-        owner: address,
-        circle: UID,
+    // ========== ERRORS ========== 
+    const EInsufficientPayment: u64 = 1;
+    const ECircleInactive: u64 = 2;
+    const EPlatformFeeTooHigh: u64 = 3;
+    const EUnauthorized: u64 = 99;
+
+    // ========== INIT ========== 
+    fun init(witness: CIRCLE_TOKEN, ctx: &mut TxContext) {
+        let registry = CircleRegistry {
+            id: object::new(ctx),
+            circles: vector::empty(),
+        };
+        transfer::share_object(registry);
+    }
+
+    // ========== PUBLIC FUNCTIONS ========== 
+    /// Cria novo círculo (retorna TreasuryCap privado)
+    public fun create_circle(
+        registry: &mut CircleRegistry,
+        name: vector<u8>,
+        symbol: vector<u8>,
+        entry_price: u64,
+        initial_supply: u64,
+        ctx: &mut TxContext
+    ): TreasuryCap<CIRCLE_TOKEN> {
+        let creator = tx_context::sender(ctx);
+
+        // Cria currency
+        let (treasury, metadata) = coin::create_currency(
+            CIRCLE_TOKEN {},
+            9, // decimals
+            symbol,
+            name,
+            b"CreatorCircles Token",
+            option::none(),
+            ctx
+        );
+
+        // Cria circle shared object
+        let circle_uid = object::new(ctx);
+        let circle_id = object::uid_to_inner(&circle_uid);
+
+        let circle = Circle {
+            id: circle_uid,
+            creator,
+            name: string::utf8(name),
+            symbol: string::utf8(symbol),
+            entry_price,
+            treasury: balance::zero(),
+            members_count: 0,
+            total_supply: initial_supply,
+            is_active: true,
+        };
+
+        // Registra no registry
+        vector::push_back(&mut registry.circles, circle_id);
+
+        // Congela metadata (imutável)
+        transfer::public_freeze_object(metadata);
+
+        // Compartilha circle
+        transfer::share_object(circle);
+
+        // Retorna treasury para criador gerenciar
+        treasury
+    }
+
+    /// Compra tokens (usuário paga em SUI)
+    public entry fun buy_tokens(
+        circle: &mut Circle,
+        treasury: &mut TreasuryCap<CIRCLE_TOKEN>,
+        payment: Coin<SUI>,
         amount: u64,
+        ctx: &mut TxContext
+    ) {
+        assert!(circle.is_active, ECircleInactive);
+
+        let buyer = tx_context::sender(ctx);
+        let required_sui = circle.entry_price * amount;
+
+        assert!(coin::value(&payment) >= required_sui, EInsufficientPayment);
+
+        // Split payment: 90% criador, 10% plataforma
+        let payment_value = coin::value(&payment);
+        let platform_fee = payment_value / 10; // 10%
+        let creator_share = payment_value - platform_fee;
+
+        // Converte para balance
+        let payment_balance = coin::into_balance(payment);
+        let platform_balance = balance::split(&mut payment_balance, platform_fee);
+
+        // Deposita no treasury do circle
+        balance::join(&mut circle.treasury, payment_balance);
+
+        // Transfere fee para plataforma
+        transfer::public_transfer(
+            coin::from_balance(platform_balance, ctx),
+            @0xPLATFORM_ADDRESS // Endereço real da plataforma
+        );
+
+        // Mint tokens para comprador
+        let tokens = coin::mint(treasury, amount, ctx);
+        transfer::public_transfer(tokens, buyer);
+
+        // Atualiza contadores
+        circle.members_count = circle.members_count + 1;
+
+        // Emite evento
+        sui::event::emit(TokensPurchased {
+            circle_id: object::id(circle),
+            buyer,
+            amount,
+            price_paid: required_sui,
+        });
     }
 
-    /// Mint capability object (authority). Only holder of MintCap can mint new tokens.
-    struct MintCap has key, store {
-        id: UID,
+    // ========== ADMIN FUNCTIONS ========== 
+    /// Saca fundos do treasury (apenas criador)
+    public entry fun withdraw_treasury(
+        circle: &mut Circle,
+        amount: u64,
+        ctx: &mut TxContext
+    ) {
+        let sender = tx_context::sender(ctx);
+        assert!(sender == circle.creator, EUnauthorized);
+
+        let withdrawn = coin::from_balance(
+            balance::split(&mut circle.treasury, amount),
+            ctx
+        );
+        transfer::public_transfer(withdrawn, sender);
     }
 
-    // Event placeholders
-    // Use `store` ability here because UID does not have `copy`/`drop` abilities.
-    struct CircleCreated has store {
-        circle: UID,
-        creator: address,
-        symbol: String,
-    }
-
-    struct TokensPurchased has store {
+    // ========== EVENTS ========== 
+    struct TokensPurchased has copy, drop {
+        circle_id: ID,
         buyer: address,
         amount: u64,
-        circle: UID,
-    }
-
-    // Pure helper: compute how many tokens correspond to an amount paid with a fixed entry price.
-    public fun compute_tokens_for_payment(amount_paid: u64, entry_price: u64): u64 {
-        if (entry_price == 0) {
-            0
-        } else {
-            amount_paid / entry_price
-        }
-    }
-
-    // Pure helper: apply a fee in basis points and return (amount_after_fee, fee_amount).
-    public fun apply_fee(amount: u64, fee_bps: u64): (u64, u64) {
-        // fee_bps is in basis points (1 bps = 0.01%). Max 10000.
-        let fee = (amount * fee_bps) / 10000;
-        (amount - fee, fee)
-    }
-
-    // Placeholder for balance calculation — actual on-chain reading should be done by explorers/indexers.
-    // To avoid requiring UID dropping in this scaffold, accept a plain circle identifier for queries.
-    public fun balance_of(_owner: address, _circle_id: u64): u64 {
-        0
-    }
-
-    // Logical API (non-entry): these helpers accept explicit addresses and act as pure
-    // placeholders until full Sui object/coin flows are implemented.
-    public fun create_circle_logical(creator: address, symbol: String, initial_supply: u64, entry_price: u64) {
-        let _creator = creator;
-        let _symbol = symbol;
-        let _initial_supply = initial_supply;
-        let _entry_price = entry_price;
-        // TODO: allocate CircleInfo and MintCap objects and publish them using TxContext
-    }
-
-    // Logical (pure) buy tokens helper. Returns (tokens_minted, fee_amount).
-    // Uses `apply_fee` with a default fee in basis points (e.g., 250 bps = 2.5%).
-    public fun buy_tokens_logical(circle_id: u64, buyer: address, amount_paid: u64): (u64, u64) {
-        let _circle_id = circle_id;
-        let _buyer = buyer;
-        // default fee: 250 bps (2.5%)
-        let fee_bps = 250u64;
-        let (amount_after_fee, fee) = apply_fee(amount_paid, fee_bps);
-        // For logical calculation we need a circle entry price; in this scaffold we
-        // don't have on-chain storage to look up the circle, so assume an example
-        // entry price. In real implementation this should be read from CircleInfo.
-        let entry_price = 10u64;
-        let tokens = compute_tokens_for_payment(amount_after_fee, entry_price);
-        (tokens, fee)
-    }
-
-    // On-chain entry wrappers: lightweight entry functions that forward to logical helpers.
-    // These allow callers/tests to invoke the on-chain API using a signer.
-    // Full coin-handling and object lifecycle will be implemented in a subsequent step.
-    // Entry variant that accepts an explicit creator address. Using `&signer` requires
-    // a canonical signer import that varies between stdlib versions; to keep the module
-    // compatible across environments we accept an `address` and forward to the logical API.
-    public entry fun create_circle_entry(creator_addr: address, symbol: String, initial_supply: u64, entry_price: u64) {
-        // forward to logical helper (accepts an address)
-        create_circle_logical(creator_addr, symbol, initial_supply, entry_price);
-    }
-
-    // Entry that wires the runtime TxContext to the implementation module which
-    // performs `object::new(ctx)` allocations. This forwards to
-    // `creator_circles::circle_token_impl::create_circle_internal` and then
-    // publishes/transfers the created objects to the creator address so they
-    // become owned on-chain.
-    public entry fun create_circle_entry_with_ctx(creator_addr: address, symbol: String, initial_supply: u64, entry_price: u64, ctx: &mut TxContext) {
-        let (circle, mintcap, balance) = creator_circles::circle_token_impl::create_circle_internal(creator_addr, symbol, initial_supply, entry_price, ctx);
-        // Transfer ownership of created objects to the creator address so they are published
-        transfer::public_transfer(circle, creator_addr);
-        transfer::public_transfer(mintcap, creator_addr);
-        transfer::public_transfer(balance, creator_addr);
-    }
-
-    public entry fun buy_tokens_entry(buyer_addr: address, circle_id: u64, amount_paid: u64): (u64, u64) {
-        buy_tokens_logical(circle_id, buyer_addr, amount_paid)
+        price_paid: u64,
     }
 }

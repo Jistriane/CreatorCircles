@@ -1,25 +1,58 @@
 /* Estilos para página de círculos */
+
 .container {
-  padding: 20px;
+  padding: 28px;
+  background: rgba(44,83,100,0.7);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #00ffe7;
+  border: 1.5px solid #2575fc;
+  font-family: 'Inter', 'Orbitron', Arial, sans-serif;
+  margin-bottom: 32px;
 }
+
 .exampleInfo {
-  font-size: 12px;
-  color: #888;
+  font-size: 13px;
+  color: #00ffe7;
+  font-family: 'Inter', Arial, sans-serif;
+  text-shadow: 0 0 8px #00ffe7;
 }
+
 .tokenSymbol {
-  color: #888;
+  color: #00ffe7;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-weight: 700;
 }
+
 .memberCount {
-  color: #555;
+  color: #fff;
+  font-weight: 600;
 }
+
 .circlesList {
-  margin-top: 16px;
-  padding-left: 20px;
+  margin-top: 24px;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 32px;
 }
+
 .circleItem {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  background: rgba(106,17,203,0.18);
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #2575fc;
+  padding: 18px;
+  border: 1.5px solid #00ffe7;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
+.circleItem:hover {
+  box-shadow: 0 8px 32px #00ffe7;
+  transform: scale(1.03);
+}
+
 .error {
-  color: red;
-  margin-top: 8px;
+  color: #ff006a;
+  margin-top: 12px;
+  font-weight: bold;
+  font-family: 'Orbitron', Arial, sans-serif;
 }

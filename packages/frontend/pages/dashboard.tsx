@@ -25,13 +25,13 @@ const BENEFITS = [
 ];
 
 function CirclePreview({ circle }: { circle: Partial<Circle> }) {
-  if (!circle.name) return null;
+  // Exibe o card mesmo sem nome para facilitar preview visual
   return (
     <div className="card circle-card preview-card">
       {circle.image && (
         <img src={circle.image} alt="Preview" className="preview-img" />
       )}
-      <div className="card-title">{circle.name} ({circle.tokenSymbol})</div>
+      <div className="card-title">{circle.name ? `${circle.name} (${circle.tokenSymbol})` : 'Preview do Círculo'}</div>
       <div className="card-meta">{circle.description}</div>
       <div className="card-meta">Preço de Entrada: <b>{circle.entryPrice} SUI</b></div>
       <div className="card-meta">Fornecimento Inicial: <b>{circle.memberCount}</b></div>
@@ -54,6 +54,7 @@ export default function Dashboard() {
   const [previewImg, setPreviewImg] = useState<string>('');
   const [creating, setCreating] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
+  const [showPreview, setShowPreview] = useState(false);
 
   const { data, error } = useSWR<{ data: Circle[] }>(process.env.NEXT_PUBLIC_API_URL + '/api/circles', fetcher);
 
@@ -150,11 +151,11 @@ export default function Dashboard() {
             <span className="info-text">💰 Taxa de Criação: 0.5 SUI</span>
           </div>
           <button type="button" className="button" onClick={handleCreateCircle} disabled={creating || !form.name || !form.tokenSymbol}>Criar Círculo</button>
-          <button type="button" className="button preview-btn" onClick={e => e.preventDefault()}>Preview</button>
+          <button type="button" className="button preview-btn" onClick={() => setShowPreview(v => !v)}>{showPreview ? 'Ocultar Preview' : 'Preview'}</button>
           {creating && <span className="info-text"> Processando...</span>}
           {status && <div className="info-text">{status}</div>}
         </form>
-        <CirclePreview circle={{ ...form, image: previewImg }} />
+        {showPreview && <CirclePreview circle={{ ...form, image: previewImg }} />}
         <hr className="divider" />
         <h2 className="dashboard-section-title">Seus círculos</h2>
         {error && <div className="error">Erro ao carregar</div>}

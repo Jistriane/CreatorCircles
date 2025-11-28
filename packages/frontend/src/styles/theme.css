@@ -1,0 +1,28 @@
+/* Tema dark/light básico */
+:root {
+  --bg-light: #f8f9fa;
+  --bg-dark: #181a1b;
+  --text-light: #222;
+  --text-dark: #f8f9fa;
+}
+
+body[data-theme='light'] {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+body[data-theme='dark'] {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}

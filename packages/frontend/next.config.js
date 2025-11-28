@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const path = require('path');
 
@@ -16,9 +15,23 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
   },
-  server: {
-    https: httpsOptions,
-    port: 3001,
+  // server: {
+  //   https: httpsOptions,
+  //   port: 3001,
+  // },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value:
+              "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; connect-src 'self' http://localhost:3000 ws://localhost:3000;",
+          },
+        ],
+      },
+    ];
   },
 };
 module.exports = nextConfig;
