@@ -1,10 +1,7 @@
 // Integração GraphQL para indexação de eventos
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
-const client = new ApolloClient({
-  uri: 'https://graphql-beta.mainnet.sui.io',
-  cache: new InMemoryCache(),
-});
+// ...existing code...
 
 // Query para listar círculos criados
 export const GET_CIRCLES = gql`

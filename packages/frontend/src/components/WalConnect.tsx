@@ -1,19 +1,14 @@
 // Integração Wal.app + dApp Kit
 import { useWalletKit } from '@mysten/wallet-kit';
-import { WalletStandard } from '@wal/wallet-standard';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export function WalConnect() {
   const { wallets, currentWallet, connect, disconnect } = useWalletKit();
-  const [walAccount, setWalAccount] = useState<any>(null);
+  // ...existing code...
 
   useEffect(() => {
     const initWal = async () => {
-      const walAdapter = new WalletStandard({
-        appName: 'CreatorCircles',
-        appIcon: 'https://creatorcircles.io/logo.png',
-      });
-      // Registra adapter
+      // ...existing code...
     };
     initWal();
   }, []);

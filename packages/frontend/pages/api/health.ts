@@ -37,7 +37,7 @@ export default async function handler(
   } catch (error) {
     res.status(500).json({
       status: 'error',
-      error: error.message,
+      error: typeof error === 'object' && error !== null && 'message' in error ? (error as any).message : String(error),
       checks,
     });
   }

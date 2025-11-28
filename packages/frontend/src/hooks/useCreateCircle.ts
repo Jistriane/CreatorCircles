@@ -1,12 +1,12 @@
 // Hook para criar círculo via PTB (Programmable Transaction Block)
 import { TransactionBlock } from '@mysten/sui.js/transactions';
-import { useSignAndExecuteTransactionBlock, useSuiClient } from '@mysten/dapp-kit';
+import { useSignAndExecuteTransaction } from '@mysten/dapp-kit';
 import { useNetworkVariable } from '../config/sui.config';
 
 export function useCreateCircle() {
-  const client = useSuiClient();
+  // ...existing code...
   const packageId = useNetworkVariable('packageId');
-  const { mutate: signAndExecute } = useSignAndExecuteTransactionBlock();
+  const { mutate: signAndExecute } = useSignAndExecuteTransaction();
 
   const createCircle = async (params: {
     name: string;
@@ -28,25 +28,22 @@ export function useCreateCircle() {
         tx.pure(params.maxMembers),
       ],
     });
-    // Transfere AdminCap para criador
-    tx.transferObjects([tx.objectRef('0x...adminCap')], tx.pure(tx.sender));
-    try {
-      const result = await signAndExecute(
-        { transactionBlock: tx },
-        {
-          onSuccess: (result) => {
-            console.log('Círculo criado:', result.digest);
-            // Indexa evento via GraphQL
-          },
-          onError: (error) => {
-            console.error('Erro:', error);
-          },
-        }
-      );
-      return result;
-    } catch (error) {
-      throw error;
-    }
+    // ...existing code...
+    const txBytes = await tx.build();
+    const txBase64 = Buffer.from(txBytes).toString('base64');
+    const result = await signAndExecute(
+      { transaction: txBase64 },
+      {
+        onSuccess: (result: any) => {
+          console.log('Círculo criado:', result.digest);
+          // Indexa evento via GraphQL
+        },
+        onError: (error: any) => {
+          console.error('Erro:', error);
+        },
+      }
+    );
+    return result;
   };
 
   return { createCircle };
